@@ -1,0 +1,623 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Sajid Abbas - Software Testing Professional, QA Automation Engineer, AWS and DevOps enthusiast.">
+    <title>Sajid Abbas | Software Testing Professional</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        /* Test Cases Excel-style table */
+        .testcase-tools {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin: 25px 0 15px;
+        }
+
+        .testcase-tools input,
+        .testcase-tools select {
+            flex: 1;
+            min-width: 220px;
+            padding: 13px 15px;
+            border: 1px solid #555;
+            border-radius: 8px;
+            background: #172033;
+            color: white;
+            font-size: 14px;
+            outline: none;
+        }
+
+        .testcase-tools input:focus,
+        .testcase-tools select:focus {
+            border-color: #6c63ff;
+        }
+
+        .testcase-tools input::placeholder {
+            color: #aaa;
+        }
+
+        .testcase-count {
+            margin-bottom: 12px;
+            color: #b8c2d6;
+            font-size: 14px;
+        }
+
+        .table-wrapper {
+            width: 100%;
+            overflow-x: auto;
+            border-radius: 10px;
+            border: 1px solid #35415a;
+        }
+
+        .testcase-table {
+            width: 100%;
+            min-width: 1500px;
+            border-collapse: collapse;
+            background: #111827;
+            color: #e8edf7;
+            font-size: 13px;
+        }
+
+        .testcase-table th {
+            background: #263653;
+            color: #fff;
+            padding: 15px 12px;
+            text-align: left;
+            white-space: nowrap;
+            border: 1px solid #3c4b68;
+        }
+
+        .testcase-table td {
+            padding: 13px 12px;
+            border: 1px solid #303d54;
+            text-align: left;
+            vertical-align: top;
+            line-height: 1.7;
+        }
+
+        .testcase-table tbody tr:nth-child(even) {
+            background: #1a263b;
+        }
+
+        .testcase-table tbody tr:hover {
+            background: #293954;
+        }
+
+        .testcase-table td:first-child {
+            color: #8f9cff;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        .priority-high {
+            color: #ff8585;
+            font-weight: 600;
+        }
+
+        .priority-medium {
+            color: #ffd27a;
+            font-weight: 600;
+        }
+
+        .no-test-results {
+            text-align: center !important;
+            padding: 25px !important;
+            color: #ffd27a;
+        }
+
+        @media (max-width: 600px) {
+            .testcase-tools {
+                flex-direction: column;
+            }
+
+            .testcase-tools input,
+            .testcase-tools select {
+                width: 100%;
+                min-width: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<header class="navbar">
+    <div class="logo">Sajid<span>.</span></div>
+
+    <nav class="nav-links" id="navLinks">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#experience">Experience</a>
+        <a href="#testcases">Test Cases</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <button class="menu-btn" id="menuBtn" aria-label="Toggle navigation">☰</button>
+</header>
+
+<main>
+
+<!-- HOME SECTION -->
+<section id="home" class="hero">
+    <div class="hero-content">
+        <p class="intro">HELLO, I'M</p>
+
+        <h1>Sajid <span>Abbas</span></h1>
+
+        <h2>Software Testing Professional</h2>
+
+        <p class="hero-description">
+            Manual Testing | Automation Testing | API Testing |
+            AWS & DevOps
+        </p>
+
+        <p class="hero-text">
+            Software Testing Professional with 3 years of experience
+            in Manual Testing, Selenium Automation using Java,
+            API Testing and Database Testing. Also learning and
+            working with AWS Cloud and DevOps technologies.
+            Passionate about delivering quality software.
+        </p>
+
+        <div class="hero-buttons">
+            <a href="#projects" class="btn primary-btn">View My Projects</a>
+
+            <a href="./assets/resume.pdf" download class="btn secondary-btn">
+                Download Resume
+            </a>
+        </div>
+
+        <div class="social-links">
+            <a href="https://github.com/sajid786005" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <a href="https://www.linkedin.com/in/sajid-abbas-703998378/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            <a href="mailto:tech.sajid.abbas@gmail.com">Email</a>
+        </div>
+    </div>
+
+    <div class="hero-image">
+        <div class="profile-photo">
+            <img src="./assets/profile.jpg" alt="Sajid Abbas Profile Photo">
+        </div>
+    </div>
+</section>
+
+<!-- ABOUT SECTION -->
+<section id="about" class="section">
+    <div class="container">
+        <h2 class="section-title">About <span>Me</span></h2>
+
+        <p class="about-text">
+            I am a Software Testing Professional with 3 years of
+            experience in Manual and Automation Testing. I have
+            hands-on experience with Selenium WebDriver, Java,
+            TestNG, API Testing using Postman and REST Assured,
+            and Database Testing using MySQL.
+        </p>
+
+        <p class="about-text">
+            I have worked on card payment processing applications,
+            performing functional, regression, smoke, sanity,
+            API and database testing. I am also developing my
+            knowledge of AWS Cloud and DevOps tools to understand
+            CI/CD pipelines and software deployment.
+        </p>
+    </div>
+</section>
+
+<!-- SKILLS SECTION -->
+<section id="skills" class="section dark-section">
+    <div class="container">
+        <h2 class="section-title">My <span>Skills</span></h2>
+
+        <div class="skills-grid">
+
+            <div class="skill-card">
+                <h3>Manual Testing</h3>
+                <p>Functional, Regression, Smoke, Sanity, UAT, Exploratory Testing</p>
+            </div>
+
+            <div class="skill-card">
+                <h3>Automation Testing</h3>
+                <p>Selenium WebDriver, Java, TestNG, Maven, Cucumber, POM</p>
+            </div>
+
+            <div class="skill-card">
+                <h3>API Testing</h3>
+                <p>Postman, REST Assured, API Validation, JSON</p>
+            </div>
+
+            <div class="skill-card">
+                <h3>Database Testing</h3>
+                <p>MySQL, SQL Queries, Joins, Data Validation</p>
+            </div>
+
+            <div class="skill-card">
+                <h3>Test Management</h3>
+                <p>JIRA, Zephyr, Test Case Design, Bug Tracking</p>
+            </div>
+
+            <div class="skill-card">
+                <h3>AWS Cloud</h3>
+                <p>EC2, S3, IAM, RDS, CloudWatch</p>
+            </div>
+
+            <div class="skill-card">
+                <h3>DevOps Tools</h3>
+                <p>Jenkins, Docker, Git, GitHub, CI/CD</p>
+            </div>
+
+            <div class="skill-card">
+                <h3>Build & Deployment</h3>
+                <p>Maven, Jenkins Pipeline, GitHub Integration</p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- EXPERIENCE SECTION -->
+<section id="experience" class="section">
+    <div class="container">
+        <h2 class="section-title">Work <span>Experience</span></h2>
+
+        <div class="experience-card">
+            <h3>Software Test Engineer</h3>
+            <h4>ZAK India Technologies | Client: Wipro (Moniepoint)</h4>
+
+            <p class="experience-description">
+                Working on Card Payment Processing applications
+                with a focus on web and mobile testing.
+            </p>
+
+            <ul>
+                <li>Designed and executed manual test cases.</li>
+                <li>Performed functional, regression, smoke and sanity testing.</li>
+                <li>Worked on Selenium WebDriver automation using Java.</li>
+                <li>Performed API testing using Postman and REST Assured.</li>
+                <li>Validated backend data using MySQL queries.</li>
+                <li>Reported and tracked defects using JIRA.</li>
+                <li>Collaborated with developers and team members in Agile.</li>
+            </ul>
+        </div>
+
+        <div class="experience-card">
+            <h3>QA Testing Intern</h3>
+            <h4>QEdge Technologies | Hyderabad</h4>
+
+            <ul>
+                <li>Completed a 6-month QA testing internship.</li>
+                <li>Learned manual testing fundamentals and test case writing.</li>
+                <li>Worked on a Card Payment Processing project.</li>
+                <li>Gained exposure to automation testing concepts.</li>
+            </ul>
+        </div>
+
+        <div class="experience-card">
+            <h3>Technical Training</h3>
+            <h4>Naresh IT | Hyderabad</h4>
+
+            <p>
+                Java Full Stack Testing, Selenium Automation
+                Testing and API Testing.
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- VIRTUAL CARD TEST CASES SECTION -->
+<section id="testcases" class="section dark-section">
+    <div class="container">
+
+        <h2 class="section-title">Virtual Card <span>Test Cases</span></h2>
+
+        <p class="section-subtitle">
+            Sample QA test scenarios covering authentication, authorization,
+            virtual card management, transactions, credit, debit, OTP and
+            mobile number management.
+        </p>
+
+        <div class="testcase-tools">
+            <input
+                type="text"
+                id="testSearch"
+                placeholder="Search Test Case ID, scenario or keyword..."
+                aria-label="Search test cases">
+
+            <select id="moduleFilter" aria-label="Filter by module">
+                <option value="all">All Modules</option>
+                <option value="Authentication">Authentication</option>
+                <option value="Authorization">Authorization</option>
+                <option value="Virtual Card">Virtual Card</option>
+                <option value="Transactions">Transactions</option>
+                <option value="Credit">Credit</option>
+                <option value="Debit">Debit</option>
+                <option value="OTP">OTP</option>
+                <option value="Mobile Number">Mobile Number</option>
+                <option value="Security">Security</option>
+            </select>
+        </div>
+
+        <p class="testcase-count" id="testcaseCount">
+            Loading test cases...
+        </p>
+
+        <div class="table-wrapper">
+            <table class="testcase-table">
+                <thead>
+                    <tr>
+                        <th>Test Case ID</th>
+                        <th>Module</th>
+                        <th>Test Scenario</th>
+                        <th>Preconditions</th>
+                        <th>Test Steps</th>
+                        <th>Test Data</th>
+                        <th>Expected Result</th>
+                        <th>Priority</th>
+                        <th>Test Type</th>
+                    </tr>
+                </thead>
+
+                <tbody id="testCaseBody">
+                </tbody>
+            </table>
+        </div>
+
+        <p class="section-subtitle" style="margin-top:15px;">
+            Note: These are illustrative sample test cases.
+            Execution status should be updated only after actual testing.
+        </p>
+
+    </div>
+</section>
+
+<!-- PROJECTS SECTION -->
+<section id="projects" class="section">
+    <div class="container">
+
+        <h2 class="section-title">My <span>Projects</span></h2>
+
+        <div class="projects-grid">
+
+            <div class="project-card">
+                <h3>SauceDemo Automation Framework</h3>
+
+                <p>
+                    Selenium WebDriver automation project using Java,
+                    TestNG, Maven and Page Object Model.
+                </p>
+
+                <div class="project-tags">
+                    <span>Java</span>
+                    <span>Selenium</span>
+                    <span>TestNG</span>
+                    <span>Maven</span>
+                </div>
+
+                <a href="https://github.com/sajid786005/SauceDemoPOM"
+                   target="_blank" rel="noopener noreferrer">
+                    View on GitHub →
+                </a>
+            </div>
+
+            <div class="project-card">
+                <h3>Card Payment Testing</h3>
+
+                <p>
+                    Testing scenarios for card payments, OTP,
+                    CVV validation, refunds and payment workflows.
+                </p>
+
+                <div class="project-tags">
+                    <span>Manual Testing</span>
+                    <span>API Testing</span>
+                    <span>MySQL</span>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <h3>AWS & DevOps Learning</h3>
+
+                <p>
+                    Hands-on learning of AWS services, Git,
+                    Jenkins, Docker and CI/CD concepts.
+                </p>
+
+                <div class="project-tags">
+                    <span>AWS</span>
+                    <span>Jenkins</span>
+                    <span>Docker</span>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- CONTACT SECTION -->
+<section id="contact" class="section dark-section">
+    <div class="container">
+
+        <h2 class="section-title">Contact <span>Me</span></h2>
+
+        <p class="contact-text">
+            Interested in working together or discussing a
+            Software Testing opportunity? Feel free to contact me.
+        </p>
+
+        <div class="contact-details">
+
+            <p>
+                <strong>Email:</strong>
+                <a href="mailto:tech.sajid.abbas@gmail.com">
+                    tech.sajid.abbas@gmail.com
+                </a>
+            </p>
+
+            <p>
+                <strong>GitHub:</strong>
+                <a href="https://github.com/sajid786005"
+                   target="_blank" rel="noopener noreferrer">
+                    github.com/sajid786005
+                </a>
+            </p>
+
+            <p>
+                <strong>LinkedIn:</strong>
+                <a href="https://www.linkedin.com/in/sajid-abbas-703998378/"
+                   target="_blank" rel="noopener noreferrer">
+                    View LinkedIn Profile
+                </a>
+            </p>
+
+        </div>
+
+      <a href="https://mail.google.com/mail/?view=cm&fs=1&to=tech.sajid.abbas@gmail.com&su=Job%20Opportunity%20-%20Software%20Testing"
+         target="_blank"
+         rel="noopener noreferrer"
+         class="btn primary-btn">
+         Send Me an Email
+        </a>
+
+    </div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="footer">
+    <p>© <span id="year"></span> Sajid Abbas. All Rights Reserved.</p>
+    <p>Software Testing | Automation | AWS & DevOps</p>
+</footer>
+
+<script src="script.js"></script>
+
+<script>
+/* Virtual Card Test Case Data */
+const testCases = [
+    ["VC_AUTH_001","Authentication","Login with valid credentials","Registered active user exists","Enter valid username and password; click Login","Valid username and password","User logs in and dashboard is displayed","High","Positive"],
+    ["VC_AUTH_002","Authentication","Login with invalid password","Registered user exists","Enter valid username and wrong password","Incorrect password","Login is rejected with an error message","High","Negative"],
+    ["VC_AUTH_003","Authentication","Login with unregistered username","User is on login page","Enter an unregistered username and password","Unregistered username","Login is rejected securely","High","Negative"],
+    ["VC_AUTH_004","Authentication","Login with blank fields","User is on login page","Leave fields blank and click Login","Blank username and password","Required field validation appears","Medium","Negative"],
+    ["VC_AUTH_005","Authentication","Account lock after repeated failures","Failed attempt limit is configured","Enter incorrect password repeatedly","Incorrect password","Account is protected according to lockout policy","High","Security"],
+    ["VC_AUTH_006","Authentication","Logout from application","User is logged in","Click Logout and revisit a protected page","Active session","User is logged out and protected pages require login","High","Positive"],
+    ["VC_AUTH_007","Authentication","Session timeout","User is logged in","Stay inactive beyond configured session time","Expired session","User must authenticate again","High","Security"],
+
+    ["VC_AUTHZ_001","Authorization","View own virtual card","User is logged in","Open Virtual Card section","Cardholder account","User can view permitted card details","High","Positive"],
+    ["VC_AUTHZ_002","Authorization","Access another user's card","Two user accounts exist","Try to access another user's card","Other user's card ID","Access is denied","Critical","Security"],
+    ["VC_AUTHZ_003","Authorization","View-only user attempts card modification","User has view-only permission","Try to block or delete a card","View-only account","Modification is denied","High","Negative"],
+    ["VC_AUTHZ_004","Authorization","Verify role-based access","Different roles are configured","Log in with each role and inspect available actions","Admin and cardholder roles","Each role can access only permitted functions","High","Security"],
+
+    ["VC_CARD_001","Virtual Card","Create a virtual card","User is eligible for a card","Select Create Virtual Card and confirm","Eligible account","Virtual card is created successfully","High","Positive"],
+    ["VC_CARD_002","Virtual Card","View virtual card details","Virtual card exists","Open card details","Existing card","Permitted details are displayed securely","High","Positive"],
+    ["VC_CARD_003","Virtual Card","Block active virtual card","Card is active","Select Block Card and confirm","Active card","Card status changes to Blocked","Critical","Positive"],
+    ["VC_CARD_004","Virtual Card","Unblock blocked virtual card","Card is blocked","Select Unblock and complete verification","Blocked card","Card status changes to Active","High","Positive"],
+    ["VC_CARD_005","Virtual Card","Close virtual card","Card is eligible for closure","Select Close Card and confirm","Eligible card","Card is closed and cannot be used for new payments","High","Positive"],
+    ["VC_CARD_006","Virtual Card","Create card for ineligible account","Account is not eligible","Attempt to create a card","Ineligible account","Card is not created and reason is displayed","Medium","Negative"],
+    ["VC_CARD_007","Virtual Card","Use expired virtual card","Card is expired","Attempt a payment with expired card","Expired card","Transaction is declined","High","Negative"],
+    ["VC_CARD_008","Virtual Card","Verify card status after blocking","Card is active","Block card and refresh card details","Active card","Blocked status remains correct after refresh","High","Regression"],
+
+    ["VC_TXN_001","Transactions","Successful online purchase","Active card and sufficient limit","Make a valid online purchase","Valid amount and merchant","Payment is approved and history is updated","Critical","Positive"],
+    ["VC_TXN_002","Transactions","Decline payment for insufficient balance","Available balance is insufficient","Attempt payment above available balance","Amount above balance","Payment is declined and balance remains correct","Critical","Negative"],
+    ["VC_TXN_003","Transactions","Payment using blocked card","Card is blocked","Attempt an online payment","Blocked card","Transaction is declined","Critical","Negative"],
+    ["VC_TXN_004","Transactions","Prevent duplicate payment","Payment request is submitted","Submit the same request again","Same order reference","Only one debit is posted","Critical","Negative"],
+    ["VC_TXN_005","Transactions","Verify transaction history","Transactions exist","Open transaction history","Known transaction references","Amount, date, status and reference are correct","High","Functional"],
+    ["VC_TXN_006","Transactions","Refund successful transaction","Successful refundable transaction exists","Initiate refund","Original transaction reference","Refund is linked to original payment and balance is adjusted","High","Positive"],
+    ["VC_TXN_007","Transactions","Handle payment timeout","Payment request is in progress","Simulate delayed response","Delayed payment response","No duplicate debit occurs","High","Negative"],
+    ["VC_TXN_008","Transactions","Verify transaction currency","Card supports configured currencies","Make a supported currency transaction","Supported currency","Currency and converted amount follow configured rules","Medium","Functional"],
+
+    ["VC_CRD_001","Credit","Credit amount successfully","Credit operation is permitted","Initiate credit and confirm","Valid credit amount","Balance increases by exact amount","High","Positive"],
+    ["VC_CRD_002","Credit","Reject zero credit amount","Credit screen is available","Enter zero and submit","0","Validation appears and balance remains unchanged","High","Negative"],
+    ["VC_CRD_003","Credit","Reject negative credit amount","Credit screen is available","Enter negative amount","Negative amount","Credit is rejected","High","Negative"],
+    ["VC_CRD_004","Credit","Verify maximum credit limit","Credit limit is configured","Submit amount at maximum limit","Maximum allowed amount","Credit follows configured limit rules","Medium","Boundary"],
+    ["VC_CRD_005","Credit","Verify credit transaction history","Credit is completed","Open transaction history","Credit reference","Credit entry is displayed accurately","Medium","Functional"],
+
+    ["VC_DEB_001","Debit","Debit after successful purchase","Active card has sufficient balance","Complete a valid purchase","Purchase amount","Balance decreases by exact amount once","Critical","Positive"],
+    ["VC_DEB_002","Debit","Reject debit above available balance","Available balance is known","Attempt debit above balance","Amount above balance","Debit is declined and balance remains unchanged","Critical","Negative"],
+    ["VC_DEB_003","Debit","Verify reversal after failed transaction","Transaction has a pending debit or hold","Cause transaction failure and inspect balance","Failed transaction reference","Debit hold is released or reversed as per policy","High","Regression"],
+    ["VC_DEB_004","Debit","Verify debit ledger entry","Successful debit exists","Inspect transaction ledger","Debit reference","One correct debit entry is recorded","High","Functional"],
+    ["VC_DEB_005","Debit","Prevent duplicate debit","Same payment request is submitted twice","Check account balance and ledger","Duplicate request","Only one debit is recorded","Critical","Negative"],
+
+    ["VC_OTP_001","OTP","Complete transaction with valid OTP","OTP challenge is active","Enter current OTP before expiry","Valid OTP","Verification succeeds","Critical","Positive"],
+    ["VC_OTP_002","OTP","Reject invalid OTP","OTP challenge is active","Enter incorrect OTP","Wrong OTP","Verification fails and transaction is not approved","Critical","Negative"],
+    ["VC_OTP_003","OTP","Reject expired OTP","OTP has expired","Enter expired OTP","Expired OTP","OTP is rejected","High","Negative"],
+    ["VC_OTP_004","OTP","Resend OTP","OTP resend is allowed","Click Resend OTP and enter newest OTP","New OTP","New OTP is delivered and verified according to policy","Medium","Positive"],
+    ["VC_OTP_005","OTP","Apply OTP retry limit","Retry limit is configured","Enter incorrect OTP repeatedly","Wrong OTP repeatedly","Further attempts are restricted according to policy","High","Security"],
+    ["VC_OTP_006","OTP","Verify OTP delivery destination","Test mobile number is registered","Request OTP and check test delivery destination","Registered test number","OTP is delivered to the intended number","High","Functional"],
+
+    ["VC_MOB_001","Mobile Number","Add new mobile number","User is authenticated","Open profile and enter a valid number","Valid mobile number","Number is added or marked pending verification","High","Positive"],
+    ["VC_MOB_002","Mobile Number","Verify new mobile number using OTP","New number is pending verification","Request OTP and enter valid OTP","Valid OTP","Mobile number is verified","High","Positive"],
+    ["VC_MOB_003","Mobile Number","Reject invalid mobile number","User is on mobile update page","Enter invalid number and submit","Invalid number format","Validation appears and number is not saved","Medium","Negative"],
+    ["VC_MOB_004","Mobile Number","Prevent duplicate mobile number","Number is already linked to another account","Attempt to add the same number","Existing linked number","Duplicate number is rejected if uniqueness is required","High","Negative"],
+    ["VC_MOB_005","Mobile Number","Update existing mobile number","User has a verified number","Enter a new number and complete verification","New valid number and OTP","New number is verified and updated","High","Positive"],
+    ["VC_MOB_006","Mobile Number","Remove existing mobile number","User has a removable number","Select Remove and complete confirmation","Existing mobile number","Number is removed or marked inactive according to policy","High","Positive"],
+    ["VC_MOB_007","Mobile Number","Prevent removal of only recovery number","Number is the only required recovery number","Try to remove without an alternative","Only registered number","Application requires an alternative or blocks removal","High","Negative"],
+    ["VC_MOB_008","Mobile Number","Verify OTP sent to new number","User is updating mobile number","Start verification and inspect test delivery destination","Old and new test numbers","OTP is sent to intended new number","Critical","Security"],
+
+    ["VC_SEC_001","Security","Mask sensitive card details","Virtual card exists","Open card details screen","Existing card","Sensitive card values are masked by default","Critical","Security"],
+    ["VC_SEC_002","Security","Prevent payment using closed card","Card is closed","Attempt a new transaction","Closed card","Transaction is declined and no debit is posted","Critical","Negative"],
+    ["VC_SEC_003","Security","Verify audit trail for sensitive actions","Audit logging is enabled","Block card and update mobile number","Test user and action references","Audit records actor, action and timestamp without exposing secrets","High","Security"],
+    ["VC_SEC_004","Security","Verify unauthorized profile update","User is not authenticated","Attempt to update mobile number directly","Unauthenticated request","Request is rejected","Critical","Security"]
+];
+
+/* Render table rows */
+const testCaseBody = document.getElementById("testCaseBody");
+const testSearch = document.getElementById("testSearch");
+const moduleFilter = document.getElementById("moduleFilter");
+const testcaseCount = document.getElementById("testcaseCount");
+
+function renderTestCases() {
+    const searchValue = testSearch.value.toLowerCase().trim();
+    const selectedModule = moduleFilter.value;
+
+    const filteredCases = testCases.filter(test => {
+        const matchesSearch = test.join(" ").toLowerCase().includes(searchValue);
+        const matchesModule = selectedModule === "all" || test[1] === selectedModule;
+        return matchesSearch && matchesModule;
+    });
+
+    testcaseCount.textContent =
+        "Showing " + filteredCases.length + " of " + testCases.length + " test cases";
+
+    if (filteredCases.length === 0) {
+        testCaseBody.innerHTML =
+            '<tr><td colspan="9" class="no-test-results">No matching test cases found.</td></tr>';
+        return;
+    }
+
+    testCaseBody.innerHTML = filteredCases.map(test => {
+        const priorityClass = test[7] === "High" ? "priority-high" : "priority-medium";
+
+        return `
+            <tr>
+                <td>${test[0]}</td>
+                <td>${test[1]}</td>
+                <td>${test[2]}</td>
+                <td>${test[3]}</td>
+                <td>${test[4]}</td>
+                <td>${test[5]}</td>
+                <td>${test[6]}</td>
+                <td class="${priorityClass}">${test[7]}</td>
+                <td>${test[8]}</td>
+            </tr>
+        `;
+    }).join("");
+}
+
+testSearch.addEventListener("input", renderTestCases);
+moduleFilter.addEventListener("change", renderTestCases);
+
+renderTestCases();
+</script>
+
+</body>
+</html>

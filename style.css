@@ -1503,3 +1503,353 @@ button:hover {
     }
 
 }
+
+/* =================================
+   FULL SCREEN CINEMATIC INTRO
+================================= */
+
+.cinematic-intro {
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background:
+        radial-gradient(circle at center,
+        #25245c 0%,
+        #11152f 45%,
+        #050816 100%);
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.8s ease, visibility 0.8s ease;
+}
+
+.cinematic-intro.hide-intro {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.intro-content {
+    padding: 20px;
+    animation: introZoom 1.2s ease both;
+}
+
+.intro-content h1 {
+    color: #ffffff;
+    font-size: clamp(35px, 8vw, 75px);
+    font-weight: 800;
+    letter-spacing: 5px;
+    margin-bottom: 15px;
+    text-shadow: 0 0 25px rgba(100, 100, 255, 0.6);
+}
+
+.intro-content h1 span {
+    color: #8c7bff;
+}
+
+.intro-content p {
+    color: #d4d4ff;
+    font-size: clamp(12px, 3vw, 19px);
+    letter-spacing: 4px;
+    margin-bottom: 25px;
+}
+
+.intro-line {
+    width: 0;
+    height: 3px;
+    margin: 0 auto 22px;
+    border-radius: 10px;
+    background: linear-gradient(90deg, #5b8cff, #a16eff);
+    box-shadow: 0 0 15px #8b70ff;
+    animation: introLine 1.2s ease 0.3s forwards;
+}
+
+.intro-content small {
+    color: #aaaed1;
+    letter-spacing: 3px;
+    font-size: 10px;
+}
+
+@keyframes introZoom {
+    from {
+        opacity: 0;
+        transform: scale(0.75);
+        filter: blur(12px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+        filter: blur(0);
+    }
+}
+
+@keyframes introLine {
+    from {
+        width: 0;
+    }
+    to {
+        width: min(280px, 75vw);
+    }
+}
+
+/* Mobile intro */
+
+@media (max-width: 650px) {
+    .intro-content h1 {
+        letter-spacing: 3px;
+    }
+
+    .intro-content p {
+        letter-spacing: 2px;
+    }
+}
+
+/* Reduced motion accessibility */
+
+@media (prefers-reduced-motion: reduce) {
+    .intro-content,
+    .intro-line {
+        animation: none;
+    }
+
+    .intro-line {
+        width: min(280px, 75vw);
+    }
+}
+
+/* CONTACT SECTION LEFT ALIGNMENT */
+
+#contact .container {
+    text-align: left !important;
+}
+
+#contact .section-title {
+    text-align: left !important;
+}
+
+#contact .contact-text {
+    text-align: left !important;
+    margin-left: 0;
+}
+
+#contact .contact-details {
+    margin-left: 0 !important;
+    margin-right: auto !important;
+    align-items: flex-start;
+    text-align: left !important;
+}
+
+#contact .contact-details p {
+    justify-content: flex-start;
+    text-align: left;
+}
+
+#contact .primary-btn {
+    margin-left: 0 !important;
+}
+
+@media (max-width: 650px) {
+    #contact .container {
+        text-align: left !important;
+    }
+
+    #contact .contact-details {
+        padding-left: 0;
+    }
+}
+
+/* ===================================
+   MATRIX CGI CINEMATIC INTRO
+=================================== */
+
+.cinematic-intro {
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    background: #000;
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.9s ease, visibility 0.9s ease;
+}
+
+.cinematic-intro.hide-intro {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+/* Matrix code background */
+
+#matrixCanvas {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.8;
+}
+
+/* Dark cinematic overlay */
+
+.matrix-overlay {
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(
+            ellipse,
+            transparent 5%,
+            rgba(0, 0, 0, 0.45) 75%,
+            #000 100%
+        );
+    pointer-events: none;
+}
+
+/* Intro content */
+
+.intro-content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    padding: 25px;
+    text-align: center;
+    animation: matrixReveal 1.2s ease both;
+}
+
+.system-label {
+    color: #39ff70;
+    font-family: monospace;
+    font-size: 13px;
+    letter-spacing: 5px;
+    margin-bottom: 25px;
+    text-shadow: 0 0 12px #00ff41;
+}
+
+.intro-content h1 {
+    color: #fff;
+    font-size: clamp(36px, 8vw, 78px);
+    font-weight: 900;
+    letter-spacing: 5px;
+    margin-bottom: 15px;
+    text-shadow:
+        0 0 10px #00ff41,
+        0 0 30px rgba(0, 255, 65, 0.6);
+}
+
+.intro-content h1 span {
+    color: #39ff70;
+}
+
+.intro-content p {
+    color: #c7ffd5;
+    font-family: monospace;
+    font-size: clamp(12px, 3vw, 19px);
+    letter-spacing: 4px;
+    margin-bottom: 25px;
+}
+
+.intro-line {
+    width: min(300px, 75%);
+    height: 3px;
+    margin: 0 auto 22px;
+    background: #00ff41;
+    box-shadow: 0 0 15px #00ff41;
+    animation: matrixPulse 1s infinite alternate;
+}
+
+.matrix-status {
+    color: #39ff70;
+    font-family: monospace;
+    font-size: 11px;
+    letter-spacing: 2px;
+}
+
+.status-dot {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    margin-right: 7px;
+    border-radius: 50%;
+    background: #00ff41;
+    box-shadow: 0 0 12px #00ff41;
+    animation: statusBlink 0.8s infinite alternate;
+}
+
+/* Animations */
+
+@keyframes matrixReveal {
+    from {
+        opacity: 0;
+        transform: scale(0.85);
+        filter: blur(12px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+        filter: blur(0);
+    }
+}
+
+@keyframes matrixPulse {
+    from { opacity: 0.5; }
+    to { opacity: 1; }
+}
+
+@keyframes statusBlink {
+    from { opacity: 0.3; }
+    to { opacity: 1; }
+}
+
+/* Mobile */
+
+@media (max-width: 650px) {
+    .intro-content h1 {
+        letter-spacing: 2px;
+    }
+
+    .system-label {
+        letter-spacing: 3px;
+    }
+
+    .intro-content p {
+        letter-spacing: 2px;
+    }
+
+    .matrix-status {
+        font-size: 9px;
+    }
+}
+
+/* Accessibility */
+
+@media (prefers-reduced-motion: reduce) {
+    .intro-content,
+    .intro-line,
+    .status-dot {
+        animation: none;
+    }
+}
+
+/* BLUE NEON MATRIX INTRO NAME */
+
+.cinematic-intro .intro-content h1 {
+    color: #00BFFF !important;
+    text-shadow:
+        0 0 5px #00BFFF,
+        0 0 15px #008CFF,
+        0 0 30px #0066FF,
+        0 0 50px #004CFF;
+}
+
+.cinematic-intro .intro-content h1 span {
+    color: #00BFFF !important;
+    text-shadow:
+        0 0 5px #00BFFF,
+        0 0 15px #008CFF,
+        0 0 30px #0066FF;
+}

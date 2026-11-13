@@ -1853,3 +1853,124 @@ button:hover {
         0 0 15px #008CFF,
         0 0 30px #0066FF;
 }
+
+/* TEST CASE FILTER DESIGN */
+
+.filter-area {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1.5fr;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.filter-area select,
+.filter-area input {
+  width: 100%;
+  min-width: 0;
+  padding: 13px 14px;
+  border: 1px solid #555;
+  border-radius: 8px;
+  background: #151515;
+  color: #fff;
+  font-size: 14px;
+  outline: none;
+}
+
+.filter-area select {
+  cursor: pointer;
+}
+
+.filter-area select:focus,
+.filter-area input:focus {
+  border-color: #00bcd4;
+}
+
+.filter-area select option {
+  background: #151515;
+  color: #fff;
+}
+
+.type-positive {
+  color: #22c55e;
+  font-weight: 700;
+}
+
+.type-negative {
+  color: #ef4444;
+  font-weight: 700;
+}
+
+#testCount {
+  font-size: 14px;
+}
+
+#testTable {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+#testTable th,
+#testTable td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #444;
+  vertical-align: top;
+}
+
+#testTable th {
+  white-space: nowrap;
+}
+
+.table-wrap {
+  width: 100%;
+  overflow-x: auto;
+}
+
+#noTests {
+  color: #aaa;
+}
+
+@media (max-width: 700px) {
+  .filter-area {
+    grid-template-columns: 1fr;
+  }
+
+  #testTable {
+    min-width: 750px;
+  }
+}
+/* TEST CASE SEARCH BOX */
+
+.test-search-box {
+    width: 100%;
+    max-width: 550px;
+    margin: 25px auto;
+}
+
+.test-search-box select {
+    width: 100%;
+    padding: 16px 20px;
+    background: #111827;
+    color: #ffffff;
+    border: 1px solid #00bfff;
+    border-radius: 10px;
+    font-size: 15px;
+    cursor: pointer;
+    outline: none;
+}
+
+.test-search-box select:focus {
+    border-color: #00bfff;
+    box-shadow: 0 0 12px rgba(0, 191, 255, 0.25);
+}
+#testcases {
+    scroll-margin-top: 100px;
+    min-height: 300px;
+}
+html {
+    scroll-behavior: smooth;
+}
+
+section {
+    scroll-margin-top: 90px;
+}

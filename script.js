@@ -5,8 +5,9 @@
 // ==============================
 
 
+
 // ==============================
-// MOBILE MENU
+// MOBILE MENU + NAVIGATION
 // ==============================
 
 const menuBtn = document.getElementById("menuBtn");
@@ -15,7 +16,6 @@ const navLinks = document.getElementById("navLinks");
 if (menuBtn && navLinks) {
 
     menuBtn.addEventListener("click", () => {
-
         navLinks.classList.toggle("active");
 
         const icon = menuBtn.querySelector("i");
@@ -29,13 +29,15 @@ if (menuBtn && navLinks) {
                 menuBtn.setAttribute("aria-label", "Open navigation");
             }
         }
-
     });
 
     document.querySelectorAll(".nav-links a").forEach(link => {
 
-        link.addEventListener("click", () => {
+        link.addEventListener("click", (event) => {
 
+            const targetId = link.getAttribute("href");
+
+            // Close mobile menu
             navLinks.classList.remove("active");
 
             const icon = menuBtn.querySelector("i");
@@ -46,11 +48,26 @@ if (menuBtn && navLinks) {
 
             menuBtn.setAttribute("aria-label", "Open navigation");
 
+            // Smooth scroll to section
+            if (targetId && targetId.startsWith("#")) {
+                const targetSection = document.querySelector(targetId);
+
+                if (targetSection) {
+                    event.preventDefault();
+
+                    targetSection.scrollIntoView({
+                        behavior: "smooth",
+                        block: "start"
+                    });
+
+                    history.replaceState(null, "", targetId);
+                }
+            }
         });
 
     });
-
 }
+
 
 
 // ==============================
@@ -121,10 +138,8 @@ if ("IntersectionObserver" in window) {
             entries.forEach(entry => {
 
                 if (entry.isIntersecting) {
-
                     entry.target.classList.add("visible");
                     observer.unobserve(entry.target);
-
                 }
 
             });
@@ -290,6 +305,115 @@ document.addEventListener("click", function(event) {
 
 
 // ==============================
+// SIMPLE TEST CASE MODULE FILTER
+// ==============================
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    const moduleFilter = document.getElementById("moduleFilter");
+
+    const testTable = document.getElementById("testTable");
+
+    const testTableBody =
+        document.getElementById("testTableBody") ||
+        testTable?.querySelector("tbody");
+
+    const noTests = document.getElementById("noTests");
+
+    const testCount = document.getElementById("testCount");
+
+    if (!moduleFilter || !testTable || !testTableBody) {
+        console.log("Test case elements not found.");
+        return;
+    }
+
+    const tableWrapper = testTable.closest(".table-wrap");
+
+    if (!tableWrapper) {
+        console.log("Test case table wrapper not found.");
+        return;
+    }
+
+    // Hide test cases when page loads
+    tableWrapper.style.display = "none";
+
+    if (noTests) {
+        noTests.style.display = "none";
+    }
+
+    if (testCount) {
+        testCount.style.display = "none";
+    }
+
+    // Filter test cases when a module is selected
+    function filterTestCases() {
+
+        const selectedModule =
+            moduleFilter.value.trim().toLowerCase();
+
+        const rows = testTableBody.querySelectorAll("tr");
+
+        let visibleCount = 0;
+
+        // Hide all test cases for default option
+        if (!selectedModule || selectedModule === "all") {
+
+            tableWrapper.style.display = "none";
+
+            if (noTests) {
+                noTests.style.display = "none";
+            }
+
+            return;
+        }
+
+        rows.forEach(row => {
+
+            const cells = row.querySelectorAll("td");
+
+            if (cells.length < 2) {
+                row.style.display = "none";
+                return;
+            }
+
+            // Column 1 contains Module name
+            const rowModule =
+                cells[1].textContent.trim().toLowerCase();
+
+            const showRow = rowModule === selectedModule;
+
+            row.style.display = showRow ? "" : "none";
+
+            if (showRow) {
+                visibleCount++;
+            }
+
+        });
+
+        // Display only selected module test cases
+        tableWrapper.style.display =
+            visibleCount > 0 ? "" : "none";
+
+        // No results message
+        if (noTests) {
+            noTests.style.display =
+                visibleCount === 0 ? "block" : "none";
+        }
+
+        console.log(
+            selectedModule + ": " + visibleCount + " test cases"
+        );
+
+    }
+
+    moduleFilter.addEventListener("change", filterTestCases);
+
+    console.log("Simple Test Case Module Filter Enabled.");
+
+});
+
+
+// ==============================
 // MATRIX CINEMATIC INTRO
 // ==============================
 
@@ -300,6 +424,12 @@ if (cinematicIntro) {
 
     let animationFrame = null;
     let introClosed = false;
+
+    let ctx = null;
+    let columns = 0;
+    let drops = [];
+
+    const fontSize = 16;
 
     function closeIntro() {
 
@@ -339,11 +469,6 @@ if (cinematicIntro) {
         drops = Array(columns).fill(1);
 
     }
-
-    let ctx = null;
-    let columns = 0;
-    let drops = [];
-    const fontSize = 16;
 
     const characters =
         "アカサタナハマヤラワ0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -388,9 +513,7 @@ if (cinematicIntro) {
                         drops[i] * fontSize > matrixCanvas.height &&
                         Math.random() > 0.975
                     ) {
-
                         drops[i] = 0;
-
                     }
 
                     drops[i]++;
@@ -426,7 +549,6 @@ if (cinematicIntro) {
 
     } else {
 
-        // If canvas is missing, do not block the portfolio.
         setTimeout(closeIntro, 500);
 
     }

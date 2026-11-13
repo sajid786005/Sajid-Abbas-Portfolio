@@ -2,833 +2,1373 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta name="description" content="Sajid Abbas - Software Testing Professional, QA Automation Engineer, AWS and DevOps enthusiast.">
+  <meta name="description" content="Sajid Abbas - Software Test Engineer with 3+ years of experience in Manual Testing, Automation Testing, Selenium Java, API Testing and SQL.">
+  <meta name="keywords" content="Sajid Abbas, Software Tester, QA Engineer, Manual Testing, Automation Testing, Selenium, Java, API Testing">
+  <meta name="author" content="Sajid Abbas">
 
-    <meta name="theme-color" content="#020804">
+  <title>Sajid Abbas | Software Test Engineer</title>
 
-    <title>Sajid Abbas | Software Testing Professional</title>
+  <style>
+    :root {
+      --bg: #080d18;
+      --surface: #101a2b;
+      --surface-light: #17243a;
+      --primary: #38bdf8;
+      --secondary: #818cf8;
+      --text: #f1f5f9;
+      --muted: #a3b2c7;
+      --border: rgba(148, 163, 184, 0.17);
+      --success: #34d399;
+    }
 
-    <link rel="stylesheet" href="style.css">
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 85px;
+    }
 
-    <style>
-        /* Test Cases Excel-style table */
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.7;
+    }
 
-        .testcase-tools {
-            display: flex;
-            gap: 12px;
-            flex-wrap: wrap;
-            margin: 25px 0 15px;
-        }
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
 
-        .testcase-tools input,
-        .testcase-tools select {
-            flex: 1;
-            min-width: 220px;
-            padding: 13px 15px;
-            border: 1px solid #555;
-            border-radius: 8px;
-            background: #172033;
-            color: white;
-            font-size: 14px;
-            outline: none;
-        }
+    button {
+      font: inherit;
+    }
 
-        .testcase-tools input:focus,
-        .testcase-tools select:focus {
-            border-color: #6c63ff;
-        }
+    .container {
+      width: min(1120px, 90%);
+      margin: auto;
+    }
 
-        .testcase-tools input::placeholder {
-            color: #aaa;
-        }
+    section {
+      padding: 85px 0;
+      scroll-margin-top: 85px;
+    }
 
-        .testcase-count {
-            margin-bottom: 12px;
-            color: #b8c2d6;
-            font-size: 14px;
-        }
+    .section-title {
+      text-align: center;
+      font-size: 34px;
+      margin-bottom: 40px;
+    }
 
-        .table-wrapper {
-            width: 100%;
-            overflow-x: auto;
-            border-radius: 10px;
-            border: 1px solid #35415a;
-        }
+    .section-title span {
+      color: var(--primary);
+    }
 
-        .testcase-table {
-            width: 100%;
-            min-width: 1500px;
-            border-collapse: collapse;
-            background: #111827;
-            color: #e8edf7;
-            font-size: 13px;
-        }
+    .muted {
+      color: var(--muted);
+    }
 
-        .testcase-table th {
-            background: #263653;
-            color: #fff;
-            padding: 15px 12px;
-            text-align: left;
-            white-space: nowrap;
-            border: 1px solid #3c4b68;
-        }
+    /* NAVIGATION */
 
-        .testcase-table td {
-            padding: 13px 12px;
-            border: 1px solid #303d54;
-            text-align: left;
-            vertical-align: top;
-            line-height: 1.7;
-        }
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(8, 13, 24, 0.96);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
 
-        .testcase-table tbody tr:nth-child(even) {
-            background: #1a263b;
-        }
+    .navbar {
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
 
-        .testcase-table tbody tr:hover {
-            background: #293954;
-        }
+    .logo {
+      font-size: 23px;
+      font-weight: 800;
+      color: var(--primary);
+    }
 
-        .testcase-table td:first-child {
-            color: #8f9cff;
-            font-weight: 600;
-            white-space: nowrap;
-        }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 23px;
+      list-style: none;
+    }
 
-        .priority-high {
-            color: #ff8585;
-            font-weight: 600;
-        }
+    .nav-links a {
+      color: var(--muted);
+      font-size: 14px;
+      transition: 0.3s;
+    }
 
-        .priority-medium {
-            color: #ffd27a;
-            font-weight: 600;
-        }
+    .nav-links a:hover {
+      color: var(--primary);
+    }
 
-        .no-test-results {
-            text-align: center !important;
-            padding: 25px !important;
-            color: #ffd27a;
-        }
+    .menu-btn {
+      display: none;
+      background: none;
+      border: 0;
+      color: white;
+      font-size: 28px;
+      cursor: pointer;
+    }
 
-        @media (max-width: 600px) {
-            .testcase-tools {
-                flex-direction: column;
-            }
+    /* HERO */
 
-            .testcase-tools input,
-            .testcase-tools select {
-                width: 100%;
-                min-width: 0;
-            }
-        }
-    </style>
+    .hero {
+      min-height: 620px;
+      display: flex;
+      align-items: center;
+      padding: 80px 0;
+      background:
+        radial-gradient(circle at 80% 30%, rgba(56,189,248,.12), transparent 35%),
+        radial-gradient(circle at 15% 80%, rgba(129,140,248,.10), transparent 35%);
+    }
+
+    .hero-content {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr;
+      align-items: center;
+      gap: 50px;
+    }
+
+    .hero-tag {
+      display: inline-block;
+      color: var(--success);
+      background: rgba(52,211,153,.10);
+      border: 1px solid rgba(52,211,153,.25);
+      padding: 7px 14px;
+      border-radius: 30px;
+      margin-bottom: 20px;
+      font-size: 13px;
+    }
+
+    .hero h1 {
+      font-size: clamp(38px, 6vw, 62px);
+      line-height: 1.15;
+      margin-bottom: 15px;
+    }
+
+    .hero h1 span {
+      color: var(--primary);
+    }
+
+    .hero h2 {
+      font-size: 22px;
+      color: var(--muted);
+      font-weight: 500;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      max-width: 650px;
+      color: var(--muted);
+      margin-bottom: 28px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 22px;
+      border-radius: 8px;
+      font-weight: 700;
+      transition: .25s;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: #06111e;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(56,189,248,.2);
+    }
+
+    .btn-outline {
+      border: 1px solid var(--primary);
+      color: var(--primary);
+    }
+
+    .btn-outline:hover {
+      background: rgba(56,189,248,.1);
+    }
+
+    .profile-wrap {
+      display: flex;
+      justify-content: center;
+    }
+
+    .profile-frame {
+      width: 280px;
+      height: 320px;
+      border: 2px solid var(--primary);
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 0 45px rgba(56,189,248,.13);
+      background: var(--surface);
+    }
+
+    .profile-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* COMMON CARDS */
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 25px;
+      border-radius: 14px;
+      transition: .25s;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(56,189,248,.5);
+    }
+
+    .card h3 {
+      color: var(--primary);
+      margin-bottom: 12px;
+      font-size: 20px;
+    }
+
+    .card p {
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 22px;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    /* ABOUT */
+
+    .about-text {
+      max-width: 900px;
+      margin: auto;
+      text-align: center;
+      color: var(--muted);
+      font-size: 17px;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 35px;
+    }
+
+    .stat-box {
+      text-align: center;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 23px;
+      border-radius: 12px;
+    }
+
+    .stat-box h3 {
+      color: var(--primary);
+      font-size: 28px;
+    }
+
+    .stat-box p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    /* SKILLS */
+
+    .skill-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .skill {
+      padding: 8px 14px;
+      background: var(--surface-light);
+      color: #c8eaff;
+      border: 1px solid rgba(56,189,248,.18);
+      border-radius: 7px;
+      font-size: 14px;
+    }
+
+    /* PROJECTS */
+
+    .project-link {
+      display: inline-block;
+      color: var(--primary);
+      font-weight: 700;
+      margin-top: 10px;
+    }
+
+    .project-link:hover {
+      text-decoration: underline;
+    }
+
+    /* TEST CASES */
+
+    .test-search-box {
+      width: 100%;
+      max-width: 550px;
+      margin: 25px auto;
+    }
+
+    .test-search-box select {
+      width: 100%;
+      padding: 16px 20px;
+      background: #111827;
+      color: #ffffff;
+      border: 1px solid var(--primary);
+      border-radius: 10px;
+      font-size: 15px;
+      cursor: pointer;
+      outline: none;
+    }
+
+    .test-search-box select:focus {
+      box-shadow: 0 0 12px rgba(0,191,255,.25);
+    }
+
+    .test-search-box option {
+      background: #101a2b;
+      color: white;
+    }
+
+    .table-wrap {
+      overflow-x: auto;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      margin-top: 20px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 700px;
+      background: var(--surface);
+    }
+
+    th, td {
+      padding: 15px;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+      font-size: 14px;
+    }
+
+    th {
+      color: var(--primary);
+      background: var(--surface-light);
+    }
+
+    td {
+      color: var(--muted);
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    .status {
+      display: inline-block;
+      color: var(--success);
+      background: rgba(52,211,153,.1);
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-size: 12px;
+    }
+
+    .type-positive {
+      color: var(--success);
+    }
+
+    .type-negative {
+      color: #fca5a5;
+    }
+
+    /* EXPERIENCE */
+
+    .timeline {
+      max-width: 850px;
+      margin: auto;
+    }
+
+    .timeline-item {
+      border-left: 2px solid var(--primary);
+      padding: 5px 0 30px 25px;
+      position: relative;
+    }
+
+    .timeline-item::before {
+      content: "";
+      width: 12px;
+      height: 12px;
+      background: var(--primary);
+      border-radius: 50%;
+      position: absolute;
+      left: -7px;
+      top: 10px;
+    }
+
+    .timeline-item h3 {
+      color: var(--primary);
+      font-size: 21px;
+    }
+
+    .timeline-item p {
+      color: var(--muted);
+      margin-top: 7px;
+    }
+
+    /* CONTACT */
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    .contact-item {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+    }
+
+    .contact-item h3 {
+      color: var(--primary);
+      margin-bottom: 6px;
+    }
+
+    .contact-item a,
+    .contact-item p {
+      color: var(--muted);
+      overflow-wrap: anywhere;
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 25px 0;
+      text-align: center;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    /* RESPONSIVE */
+
+    @media (max-width: 850px) {
+      .nav-links {
+        gap: 12px;
+      }
+
+      .nav-links a {
+        font-size: 12px;
+      }
+
+      .hero-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .hero p {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .hero-buttons {
+        justify-content: center;
+      }
+
+      .profile-wrap {
+        order: -1;
+      }
+
+      .grid-3 {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 650px) {
+      section {
+        padding: 65px 0;
+      }
+
+      .section-title {
+        font-size: 28px;
+      }
+
+      .menu-btn {
+        display: block;
+      }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 72px;
+        left: 0;
+        width: 100%;
+        background: #101a2b;
+        padding: 20px;
+        flex-direction: column;
+        align-items: flex-start;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .nav-links a {
+        font-size: 15px;
+      }
+
+      .grid-2,
+      .grid-3,
+      .contact-grid,
+      .stats {
+        grid-template-columns: 1fr;
+      }
+
+      .profile-frame {
+        width: 220px;
+        height: 250px;
+      }
+
+      .hero h2 {
+        font-size: 18px;
+      }
+
+      .hero {
+        padding: 55px 0;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-<!-- =================================
-     MATRIX CGI CINEMATIC INTRO
-================================= -->
+  <!-- NAVIGATION -->
+  <header>
+    <div class="container navbar">
 
-<div id="cinematicIntro" class="cinematic-intro">
+      <a href="#home" class="logo">Sajid Abbas</a>
 
-    <canvas id="matrixCanvas"></canvas>
+      <button class="menu-btn" id="menuBtn" aria-label="Open navigation menu">
+        ☰
+      </button>
 
-    <div class="matrix-overlay"></div>
-
-    <div class="intro-content">
-
-        <div class="system-label">INITIALIZING SYSTEM</div>
-
-        <h1>SAJID <span>ABBAS</span></h1>
-
-        <p>SOFTWARE TEST ENGINEER</p>
-
-        <div class="intro-line"></div>
-
-        <div class="matrix-status">
-            <span class="status-dot"></span>
-            SYSTEM READY — ACCESS GRANTED
-        </div>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#testcases">Test Cases</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
 
     </div>
+  </header>
 
-</div>
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="container hero-content">
 
+      <div>
+        <span class="hero-tag">Available for Software Testing Opportunities</span>
 
-<!-- NAVBAR -->
+        <h1>Hi, I'm <span>Sajid Abbas</span></h1>
 
-<header class="navbar">
+        <h2>Software Test Engineer | Manual & Automation Testing</h2>
 
-    <div class="logo">Sajid<span>.</span></div>
-
-    <nav class="nav-links" id="navLinks">
-        <a href="#home">Home</a>
-        <a href="#about">About</a>
-        <a href="#skills">Skills</a>
-        <a href="#experience">Experience</a>
-        <a href="#testcases">Test Cases</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
-    </nav>
-
-    <button class="menu-btn" id="menuBtn" aria-label="Toggle navigation">
-        ☰
-    </button>
-
-</header>
-
-
-<main>
-
-<!-- =================================
-     HOME SECTION
-================================= -->
-
-<section id="home" class="hero">
-
-    <div class="hero-content">
-
-        <p class="intro">HELLO, I'M</p>
-
-        <h1>Sajid <span>Abbas</span></h1>
-
-        <h2>Software Testing Professional</h2>
-
-        <p class="hero-description">
-            Manual Testing | Automation Testing | API Testing |
-            AWS & DevOps
-        </p>
-
-        <p class="hero-text">
-            Software Testing Professional with 3 years of experience
-            in Manual Testing, Selenium Automation using Java,
-            API Testing and Database Testing. Also learning and
-            working with AWS Cloud and DevOps technologies.
-            Passionate about delivering quality software.
+        <p>
+          Software Testing professional with 3+ years of experience in
+          Manual Testing, Automation Testing, API Testing and Database Testing.
+          Skilled in Selenium WebDriver, Java, TestNG, Postman, Rest Assured,
+          MySQL and Jira. Focused on delivering reliable, high-quality software.
         </p>
 
         <div class="hero-buttons">
+          <a href="#contact" class="btn btn-primary">Contact Me</a>
 
-            <a href="#projects" class="btn primary-btn">
-                View My Projects
-            </a>
-
-            <a href="./assets/resume.pdf" download class="btn secondary-btn">
-                Download Resume
-            </a>
-
+          <a href="assets/resume.pdf" class="btn btn-outline" download>
+            Download Resume
+          </a>
         </div>
+      </div>
 
-        <div class="social-links">
-
-            <a href="https://github.com/sajid786005"
-               target="_blank" rel="noopener noreferrer">
-                GitHub
-            </a>
-
-            <a href="https://www.linkedin.com/in/sajid-abbas-703998378/"
-               target="_blank" rel="noopener noreferrer">
-                LinkedIn
-            </a>
-
-            <a href="mailto:tech.sajid.abbas@gmail.com">
-                Email
-            </a>
-
+      <div class="profile-wrap">
+        <div class="profile-frame">
+          <img src="assets/profile.jpg" alt="Sajid Abbas profile photo">
         </div>
+      </div>
 
     </div>
+  </section>
 
-
-    <div class="hero-image">
-
-        <div class="profile-photo">
-            <img src="./assets/profile.jpg" alt="Sajid Abbas Profile Photo">
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =================================
-     ABOUT SECTION
-================================= -->
-
-<section id="about" class="section">
-
+  <!-- ABOUT -->
+  <section id="about">
     <div class="container">
 
-        <h2 class="section-title">
-            About <span>Me</span>
-        </h2>
+      <h2 class="section-title">About <span>Me</span></h2>
 
-        <p class="about-text">
-            I am a Software Testing Professional with 3 years of
-            experience in Manual and Automation Testing. I have
-            hands-on experience with Selenium WebDriver, Java,
-            TestNG, API Testing using Postman and REST Assured,
-            and Database Testing using MySQL.
+      <div class="about-text">
+        <p>
+          I am a Software Test Engineer with 3+ years of experience in
+          Manual and Automation Testing. I have worked on card payment
+          processing applications and tested web and mobile application
+          workflows.
         </p>
 
-        <p class="about-text">
-            I have worked on card payment processing applications,
-            performing functional, regression, smoke, sanity,
-            API and database testing. I am also developing my
-            knowledge of AWS Cloud and DevOps tools to understand
-            CI/CD pipelines and software deployment.
+        <p>
+          My experience includes test case design, test execution,
+          functional testing, regression testing, smoke testing,
+          API testing, database validation and defect tracking.
+          I enjoy finding issues, understanding application behaviour
+          and helping teams deliver quality software.
         </p>
+      </div>
 
+      <div class="stats">
+
+        <div class="stat-box">
+          <h3>3+ Years</h3>
+          <p>Testing Experience</p>
+        </div>
+
+        <div class="stat-box">
+          <h3>Manual</h3>
+          <p>Software Testing</p>
+        </div>
+
+        <div class="stat-box">
+          <h3>Automation</h3>
+          <p>Selenium with Java</p>
+        </div>
+
+      </div>
     </div>
+  </section>
 
-</section>
-
-
-<!-- =================================
-     SKILLS SECTION
-================================= -->
-
-<section id="skills" class="section dark-section">
-
+  <!-- TECHNICAL SKILLS -->
+  <section id="skills">
     <div class="container">
 
-        <h2 class="section-title">
-            My <span>Skills</span>
-        </h2>
+      <h2 class="section-title">Technical <span>Skills</span></h2>
 
-        <div class="skills-grid">
+      <div class="grid-2">
 
-            <div class="skill-card">
-                <h3>Manual Testing</h3>
-                <p>Functional, Regression, Smoke, Sanity, UAT, Exploratory Testing</p>
-            </div>
-
-            <div class="skill-card">
-                <h3>Automation Testing</h3>
-                <p>Selenium WebDriver, Java, TestNG, Maven, Cucumber, POM</p>
-            </div>
-
-            <div class="skill-card">
-                <h3>API Testing</h3>
-                <p>Postman, REST Assured, API Validation, JSON</p>
-            </div>
-
-            <div class="skill-card">
-                <h3>Database Testing</h3>
-                <p>MySQL, SQL Queries, Joins, Data Validation</p>
-            </div>
-
-            <div class="skill-card">
-                <h3>Test Management</h3>
-                <p>JIRA, Zephyr, Test Case Design, Bug Tracking</p>
-            </div>
-
-            <div class="skill-card">
-                <h3>AWS Cloud</h3>
-                <p>EC2, S3, IAM, RDS, CloudWatch</p>
-            </div>
-
-            <div class="skill-card">
-                <h3>DevOps Tools</h3>
-                <p>Jenkins, Docker, Git, GitHub, CI/CD</p>
-            </div>
-
-            <div class="skill-card">
-                <h3>Build & Deployment</h3>
-                <p>Maven, Jenkins Pipeline, GitHub Integration</p>
-            </div>
-
+        <div class="card">
+          <h3>Manual Testing</h3>
+          <div class="skill-list">
+            <span class="skill">Functional Testing</span>
+            <span class="skill">Regression Testing</span>
+            <span class="skill">Smoke Testing</span>
+            <span class="skill">Sanity Testing</span>
+            <span class="skill">Exploratory Testing</span>
+            <span class="skill">UAT Testing</span>
+            <span class="skill">Test Case Design</span>
+            <span class="skill">Test Execution</span>
+            <span class="skill">Defect Life Cycle</span>
+            <span class="skill">Bug Reporting</span>
+            <span class="skill">Agile / Scrum</span>
+          </div>
         </div>
 
+        <div class="card">
+          <h3>Automation Testing</h3>
+          <div class="skill-list">
+            <span class="skill">Core Java</span>
+            <span class="skill">Selenium WebDriver</span>
+            <span class="skill">TestNG</span>
+            <span class="skill">Maven</span>
+            <span class="skill">Page Object Model (POM)</span>
+            <span class="skill">Page Factory</span>
+            <span class="skill">Cucumber BDD</span>
+            <span class="skill">Data-Driven Testing</span>
+            <span class="skill">Hybrid Framework</span>
+            <span class="skill">XPath & CSS Selectors</span>
+            <span class="skill">Assertions</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>API & Database Testing</h3>
+          <div class="skill-list">
+            <span class="skill">Postman</span>
+            <span class="skill">Rest Assured</span>
+            <span class="skill">REST API Testing</span>
+            <span class="skill">HTTP Methods</span>
+            <span class="skill">JSON</span>
+            <span class="skill">API Status Codes</span>
+            <span class="skill">MySQL</span>
+            <span class="skill">SQL Queries</span>
+            <span class="skill">Joins</span>
+            <span class="skill">Database Validation</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Tools & Technologies</h3>
+          <div class="skill-list">
+            <span class="skill">Jira</span>
+            <span class="skill">Zephyr</span>
+            <span class="skill">Git</span>
+            <span class="skill">GitHub</span>
+            <span class="skill">Jenkins</span>
+            <span class="skill">HTML5</span>
+            <span class="skill">CSS3</span>
+            <span class="skill">JavaScript</span>
+            <span class="skill">AWS EC2</span>
+            <span class="skill">AWS S3</span>
+            <span class="skill">AWS IAM</span>
+            <span class="skill">Docker</span>
+            <span class="skill">CI/CD Basics</span>
+          </div>
+        </div>
+
+      </div>
     </div>
+  </section>
 
-</section>
-
-
-<!-- =================================
-     EXPERIENCE SECTION
-================================= -->
-
-<section id="experience" class="section">
-
+  <!-- PROJECTS -->
+  <section id="projects">
     <div class="container">
 
-        <h2 class="section-title">
-            Work <span>Experience</span>
-        </h2>
+      <h2 class="section-title">My <span>Projects</span></h2>
 
-        <div class="experience-card">
+      <div class="grid-2">
 
-            <h3>Software Test Engineer</h3>
+        <div class="card">
+          <h3>Virtual Card Payment System</h3>
 
-            <h4>ZAK India Technologies | Client: Wipro (Moniepoint)</h4>
+          <p>
+            Tested a Virtual Card Payment System covering card creation,
+            activation, OTP verification, CVV validation, authentication,
+            payment transactions, refunds and transaction history.
+          </p>
 
-            <p class="experience-description">
-                Working on Card Payment Processing applications
-                with a focus on web and mobile testing.
-            </p>
+          <p class="muted">
+            <strong>Testing Types:</strong> Manual Testing,
+            Automation Testing, API Testing and Database Testing.
+          </p>
 
-            <ul>
-                <li>Designed and executed manual test cases.</li>
-                <li>Performed functional, regression, smoke and sanity testing.</li>
-                <li>Worked on Selenium WebDriver automation using Java.</li>
-                <li>Performed API testing using Postman and REST Assured.</li>
-                <li>Validated backend data using MySQL queries.</li>
-                <li>Reported and tracked defects using JIRA.</li>
-                <li>Collaborated with developers and team members in Agile.</li>
-            </ul>
+          <p class="muted">
+            <strong>Automation Tools:</strong> Selenium WebDriver,
+            Java, TestNG, Maven and Page Object Model (POM).
+          </p>
 
+          <p class="muted">
+            <strong>API & Database Tools:</strong> Postman and MySQL.
+          </p>
+
+          <p class="muted">
+            <strong>Automation Coverage:</strong> Functional Testing,
+            Regression Testing, OTP Verification, CVV Validation
+            and Payment Workflows.
+          </p>
+
+          <p class="muted">
+            <strong>Defect Tracking:</strong> Jira.
+          </p>
+
+          <a class="project-link"
+             href="https://github.com/sajid786005"
+             target="_blank" rel="noopener">
+            GitHub Profile →
+          </a>
         </div>
 
+        <div class="card">
+          <h3>SauceDemo Automation Framework</h3>
 
-        <div class="experience-card">
+          <p>
+            Developed a web automation testing framework using
+            Selenium WebDriver, Java, TestNG, Maven and
+            Page Object Model (POM).
+          </p>
 
-            <h3>QA Testing Intern</h3>
+          <p class="muted">
+            Focus: Automated login, product selection,
+            shopping cart, checkout and order workflows.
+          </p>
 
-            <h4>QEdge Technologies | Hyderabad</h4>
+          <p class="muted">
+            Automation: TestNG annotations, assertions,
+            reusable methods, test execution and
+            regression testing.
+          </p>
 
-            <ul>
-                <li>Completed a 6-month QA testing internship.</li>
-                <li>Learned manual testing fundamentals and test case writing.</li>
-                <li>Worked on a Card Payment Processing project.</li>
-                <li>Gained exposure to automation testing concepts.</li>
-            </ul>
-
+          <a class="project-link"
+             href="https://github.com/sajid786005/SauceDemoPOM"
+             target="_blank" rel="noopener">
+            View GitHub Project →
+          </a>
         </div>
 
-
-        <div class="experience-card">
-
-            <h3>Technical Training</h3>
-
-            <h4>Naresh IT | Hyderabad</h4>
-
-            <p>
-                Java Full Stack Testing, Selenium Automation
-                Testing and API Testing.
-            </p>
-
-        </div>
-
+      </div>
     </div>
+  </section>
 
-</section>
-
-
-<!-- =================================
-     VIRTUAL CARD TEST CASES
-================================= -->
-
-<section id="testcases" class="section dark-section">
-
+  <!-- TEST CASES -->
+  <section id="testcases">
     <div class="container">
 
-        <h2 class="section-title">
-            Virtual Card <span>Test Cases</span>
-        </h2>
+      <h2 class="section-title">Sample <span>Test Cases</span></h2>
 
-        <p class="section-subtitle">
-            Sample QA test scenarios covering authentication, authorization,
-            virtual card management, transactions, credit, debit, OTP and
-            mobile number management.
+      <p class="muted" style="text-align:center; margin-bottom:25px;">
+        Select a module to view its manual and automation testing scenarios.
+      </p>
+
+      <div class="test-search-box">
+        <select id="moduleFilter" class="search-input">
+          <option value="all">Test Cases</option>
+          <option value="Login">Login</option>
+          <option value="OTP">OTP</option>
+          <option value="Card">Card</option>
+          <option value="CVV">CVV</option>
+          <option value="Mobile Number">Mobile Number</option>
+          <option value="Payment Life Cycle">Payment Life Cycle</option>
+          <option value="Refund">Refund</option>
+          <option value="Settlement">Settlement</option>
+          <option value="Transaction">Transaction</option>
+          <option value="Database">Database</option>
+        </select>
+      </div>
+
+      <div class="table-wrap" id="testTableWrap" style="display:none;">
+        <table id="testTable">
+          <thead>
+            <tr>
+              <th>Test Case ID</th>
+              <th>Module</th>
+              <th>Test Scenario</th>
+              <th>Expected Result</th>
+              <th>Test Type</th>
+              <th>Sample Status</th>
+            </tr>
+          </thead>
+          <tbody id="testTableBody"></tbody>
+        </table>
+
+        <p id="noTests" style="display:none; text-align:center; padding:20px;">
+          No matching test cases found.
         </p>
+      </div>
 
-        <div class="testcase-tools">
-
-            <input
-                type="text"
-                id="testSearch"
-                placeholder="Search Test Case ID, scenario or keyword..."
-                aria-label="Search test cases">
-
-            <select id="moduleFilter" aria-label="Filter by module">
-
-                <option value="all">All Modules</option>
-                <option value="Authentication">Authentication</option>
-                <option value="Authorization">Authorization</option>
-                <option value="Virtual Card">Virtual Card</option>
-                <option value="Transactions">Transactions</option>
-                <option value="Credit">Credit</option>
-                <option value="Debit">Debit</option>
-                <option value="OTP">OTP</option>
-                <option value="Mobile Number">Mobile Number</option>
-                <option value="Security">Security</option>
-
-            </select>
-
-        </div>
-
-        <p class="testcase-count" id="testcaseCount">
-            Loading test cases...
-        </p>
-
-        <div class="table-wrapper">
-
-            <table class="testcase-table">
-
-                <thead>
-                    <tr>
-                        <th>Test Case ID</th>
-                        <th>Module</th>
-                        <th>Test Scenario</th>
-                        <th>Preconditions</th>
-                        <th>Test Steps</th>
-                        <th>Test Data</th>
-                        <th>Expected Result</th>
-                        <th>Priority</th>
-                        <th>Test Type</th>
-                    </tr>
-                </thead>
-
-                <tbody id="testCaseBody"></tbody>
-
-            </table>
-
-        </div>
-
-        <p class="section-subtitle" style="margin-top:15px;">
-            Note: These are illustrative sample test cases.
-            Execution status should be updated only after actual testing.
-        </p>
+      <p class="muted" style="margin-top:15px; font-size:13px;">
+        Note: These are illustrative portfolio examples, not production test execution records.
+      </p>
 
     </div>
+  </section>
 
-</section>
-
-
-<!-- =================================
-     PROJECTS SECTION
-================================= -->
-
-<section id="projects" class="section">
-
+  <!-- AUTOMATION COVERAGE -->
+  <section id="automation">
     <div class="container">
 
-        <h2 class="section-title">
-            My <span>Projects</span>
-        </h2>
+      <h2 class="section-title">Automation <span>Testing Areas</span></h2>
 
-        <div class="projects-grid">
+      <div class="grid-3">
 
-            <div class="project-card">
-
-                <h3>SauceDemo Automation Framework</h3>
-
-                <p>
-                    Selenium WebDriver automation project using Java,
-                    TestNG, Maven and Page Object Model.
-                </p>
-
-                <div class="project-tags">
-                    <span>Java</span>
-                    <span>Selenium</span>
-                    <span>TestNG</span>
-                    <span>Maven</span>
-                </div>
-
-                <a href="https://github.com/sajid786005/SauceDemoPOM"
-                   target="_blank" rel="noopener noreferrer">
-                    View on GitHub →
-                </a>
-
-            </div>
-
-
-            <div class="project-card">
-
-                <h3>Virtual Card Payment System</h3>
-
-                <p>
-                    Testing scenarios for card payments, OTP,
-                    CVV validation, refunds and payment workflows.
-                </p>
-
-                <div class="project-tags">
-                    <span>Manual Testing</span>
-                    <span>API Testing</span>
-                    <span>MySQL</span>
-                </div>
-
-            </div>
-
-
-            <div class="project-card">
-
-                <h3>AWS & DevOps Learning</h3>
-
-                <p>
-                    Hands-on learning of AWS services, Git,
-                    Jenkins, Docker and CI/CD concepts.
-                </p>
-
-                <div class="project-tags">
-                    <span>AWS</span>
-                    <span>Jenkins</span>
-                    <span>Docker</span>
-                </div>
-
-            </div>
-
+        <div class="card">
+          <h3>Login Testing</h3>
+          <p>Valid login, invalid login, empty fields and error message scenarios.</p>
         </div>
+
+        <div class="card">
+          <h3>Product Testing</h3>
+          <p>Product selection, product details and shopping cart scenarios.</p>
+        </div>
+
+        <div class="card">
+          <h3>Checkout Testing</h3>
+          <p>Checkout form validation, order summary and order completion scenarios.</p>
+        </div>
+
+      </div>
+
+      <p class="muted" style="margin-top:20px; text-align:center;">
+        Automation examples are based on Selenium Java and TestNG learning/project work.
+        Describe only the scenarios you have actually automated and executed in interviews.
+      </p>
 
     </div>
+  </section>
 
-</section>
-
-
-<!-- =================================
-     CONTACT SECTION
-================================= -->
-
-<section id="contact" class="section dark-section">
-
+  <!-- BUG REPORTS -->
+  <section id="bugs">
     <div class="container">
 
-        <h2 class="section-title">
-            Contact <span>Me</span>
-        </h2>
+      <h2 class="section-title">Sample <span>Bug Reports</span></h2>
 
-        <p class="contact-text">
-            Interested in working together or discussing a
-            Software Testing opportunity? Feel free to contact me.
-        </p>
+      <div class="grid-2">
 
-        <div class="contact-details">
-
-            <p>
-                <strong>Name:</strong>
-                <span>Sajid Abbas</span>
-            </p>
-
-            <p>
-                <strong>Phone:</strong>
-                <a href="tel:+917208288560">+91-7208288560</a>
-            </p>
-
-            <p>
-                <strong>Email:</strong>
-                <a href="mailto:tech.sajid.abbas@gmail.com">
-                    tech.sajid.abbas@gmail.com
-                </a>
-            </p>
-
-            <p>
-                <strong>GitHub:</strong>
-                <a href="https://github.com/sajid786005"
-                   target="_blank" rel="noopener noreferrer">
-                    github.com/sajid786005
-                </a>
-            </p>
-
-            <p>
-                <strong>LinkedIn:</strong>
-                <a href="https://www.linkedin.com/in/sajid-abbas-703998378/"
-                   target="_blank" rel="noopener noreferrer">
-                    View LinkedIn Profile
-                </a>
-            </p>
-
-            <p>
-                <strong>Location:</strong>
-                <span>Hyderabad, India</span>
-            </p>
-
+        <div class="card">
+          <h3>BUG_001 – Invalid OTP Accepted</h3>
+          <p><strong>Module:</strong> OTP Authentication</p>
+          <p><strong>Severity:</strong> High</p>
+          <p><strong>Priority:</strong> High</p>
+          <p><strong>Expected:</strong> Invalid OTP should be rejected.</p>
+          <p><strong>Actual:</strong> Illustrative example: invalid OTP is accepted.</p>
         </div>
 
-        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=tech.sajid.abbas@gmail.com&su=Job%20Opportunity%20-%20Software%20Testing"
-           target="_blank"
-           rel="noopener noreferrer"
-           class="btn primary-btn">
-            Send Me an Email
+        <div class="card">
+          <h3>BUG_002 – Incorrect Transaction Status</h3>
+          <p><strong>Module:</strong> Payment</p>
+          <p><strong>Severity:</strong> Medium</p>
+          <p><strong>Priority:</strong> High</p>
+          <p><strong>Expected:</strong> Correct transaction status should display.</p>
+          <p><strong>Actual:</strong> Illustrative example: incorrect status is displayed.</p>
+        </div>
+
+      </div>
+
+      <p class="muted" style="margin-top:15px; font-size:13px;">
+        Note: These are sample bug reports created for portfolio demonstration.
+      </p>
+
+    </div>
+  </section>
+
+  <!-- PROFESSIONAL EXPERIENCE -->
+  <section id="experience">
+    <div class="container">
+
+      <h2 class="section-title">Professional <span>Experience</span></h2>
+
+      <div class="card">
+        <h3>Software Test Engineer</h3>
+
+        <p><strong>ZAK India Technologies</strong></p>
+        <p class="muted">Client: Wipro – Moniepoint</p>
+        <p class="muted">March 2023 – Present | Hyderabad, India</p>
+
+        <p>
+          Working on a Card Payment Processing System,
+          focusing on Manual Testing, Automation Testing,
+          API Testing and Database Testing.
+        </p>
+
+        <h4>Key Responsibilities</h4>
+
+        <ul>
+          <li>Designed and executed manual test cases for card payment workflows.</li>
+          <li>Performed Functional, Regression, Smoke and Sanity Testing.</li>
+          <li>Developed Selenium WebDriver automation scripts using Java and TestNG.</li>
+          <li>Performed API Testing using Postman and Rest Assured.</li>
+          <li>Validated backend data using MySQL queries.</li>
+          <li>Reported and tracked defects using Jira.</li>
+          <li>Participated in Agile Scrum meetings and sprint activities.</li>
+        </ul>
+
+        <h4>Project: Virtual Card Payment System</h4>
+
+        <p class="muted">
+          Worked on card creation, activation, OTP verification,
+          CVV validation, payment transactions, refunds and
+          transaction history.
+        </p>
+      </div>
+
+      <div class="timeline" style="margin-top:30px;">
+
+        <div class="timeline-item">
+          <h3>QA Testing Intern</h3>
+          <p><strong>QEdge Technologies, Hyderabad</strong></p>
+          <p>6-Month Internship – Completed</p>
+          <p>
+            Completed practical QA testing training with exposure
+            to test case preparation, manual testing, defect reporting
+            and card payment process testing.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- WORK EXPERIENCE TIMELINE -->
+  <section id="work-timeline">
+    <div class="container">
+
+      <h2 class="section-title">Work <span>Experience Details</span></h2>
+
+      <div class="timeline">
+
+        <div class="timeline-item">
+          <h3>Software Test Engineer</h3>
+          <p><strong>ZAK India Technologies</strong> | Client: Wipro – Moniepoint</p>
+          <p>March 2023 – Present</p>
+
+          <p>
+            Working on a card payment processing application,
+            covering debit, credit, prepaid and virtual card workflows.
+          </p>
+
+          <p>
+            • Designed and executed manual test cases.<br>
+            • Performed functional, regression, smoke and sanity testing.<br>
+            • Tested web and mobile application workflows.<br>
+            • Performed API testing using Postman and Rest Assured.<br>
+            • Validated application data using MySQL queries.<br>
+            • Automated web application scenarios using Selenium with Java and TestNG.<br>
+            • Reported and tracked defects using Jira.<br>
+            • Participated in Agile/Scrum activities.
+          </p>
+        </div>
+
+        <div class="timeline-item">
+          <h3>QA Testing Intern</h3>
+          <p><strong>QEdge Technologies, Hyderabad</strong></p>
+          <p>6-Month Internship – Completed</p>
+
+          <p>
+            Completed practical QA testing training with exposure
+            to test case preparation, manual testing, defect reporting
+            and card payment process testing.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section id="education">
+    <div class="container">
+
+      <h2 class="section-title">Education & <span>Training</span></h2>
+
+      <div class="grid-2">
+
+        <div class="card">
+          <h3>Master of Computer Applications (M.C.A.)</h3>
+          <p>Little Flowers College, Mumbai</p>
+          <p><strong>Completed: 2025</strong></p>
+        </div>
+
+        <div class="card">
+          <h3>Bachelor of Arts (B.A.)</h3>
+          <p>English and Sociology</p>
+          <p>Dr. Ram Manohar Lohia Avadh University</p>
+          <p><strong>Completed: 2015</strong></p>
+        </div>
+
+        <div class="card">
+          <h3>QA Testing Internship</h3>
+          <p>QEdge Technologies, Hyderabad</p>
+          <p>6-Month QA Testing Internship – Completed</p>
+        </div>
+
+        <div class="card">
+          <h3>Technical Training</h3>
+          <p>Naresh IT, Hyderabad</p>
+          <p>Java Full Stack Testing, Selenium Automation and API Testing.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="container">
+
+      <h2 class="section-title">Contact <span>Me</span></h2>
+
+      <div class="contact-grid">
+
+        <div class="contact-item">
+          <h3>Email</h3>
+          <a href="mailto:tech.sajid.abbas@gmail.com">
+            tech.sajid.abbas@gmail.com
+          </a>
+        </div>
+
+        <div class="contact-item">
+          <h3>Phone</h3>
+          <a href="tel:+917208288560">
+            +91 72082 88560
+          </a>
+        </div>
+
+        <div class="contact-item">
+          <h3>LinkedIn</h3>
+          <a href="https://www.linkedin.com/in/sajid-abbas-703998378/"
+             target="_blank" rel="noopener">
+            View LinkedIn Profile
+          </a>
+        </div>
+
+        <div class="contact-item">
+          <h3>GitHub</h3>
+          <a href="https://github.com/sajid786005"
+             target="_blank" rel="noopener">
+            View GitHub Profile
+          </a>
+        </div>
+
+      </div>
+
+      <div style="text-align:center; margin-top:30px;">
+        <a href="mailto:tech.sajid.abbas@gmail.com"
+           class="btn btn-primary">
+          Send Me an Email
         </a>
+      </div>
 
     </div>
+  </section>
 
-</section>
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <p>© <span id="year"></span> Sajid Abbas. All Rights Reserved.</p>
+      <p>Software Test Engineer | Manual & Automation Testing</p>
+    </div>
+  </footer>
 
-</main>
+  <!-- ALL PAGE JAVASCRIPT -->
+  <script>
 
+    // MOBILE NAVIGATION
+    const menuBtn = document.getElementById("menuBtn");
+    const navLinks = document.getElementById("navLinks");
 
-<!-- =================================
-     FOOTER
-================================= -->
+    if (menuBtn && navLinks) {
 
-<footer class="footer">
+      menuBtn.addEventListener("click", function () {
+        navLinks.classList.toggle("active");
 
-    <p>
-        © <span id="year"></span> Sajid Abbas. All Rights Reserved.
-    </p>
+        menuBtn.textContent =
+          navLinks.classList.contains("active") ? "✕" : "☰";
 
-    <p>
-        Software Testing | Automation | AWS & DevOps
-    </p>
+        menuBtn.setAttribute(
+          "aria-label",
+          navLinks.classList.contains("active")
+            ? "Close navigation menu"
+            : "Open navigation menu"
+        );
+      });
 
-</footer>
-
-
-<!-- MAIN JAVASCRIPT -->
-
-<script src="script.js"></script>
-
-
-<!-- =================================
-     VIRTUAL CARD TEST CASE DATA
-================================= -->
-
-<script>
-
-const testCases = [
-
-    ["VC_AUTH_001","Authentication","Login with valid credentials","Registered active user exists","Enter valid username and password; click Login","Valid username and password","User logs in and dashboard is displayed","High","Positive"],
-    ["VC_AUTH_002","Authentication","Login with invalid password","Registered user exists","Enter valid username and wrong password","Incorrect password","Login is rejected with an error message","High","Negative"],
-    ["VC_AUTH_003","Authentication","Login with unregistered username","User is on login page","Enter an unregistered username and password","Unregistered username","Login is rejected securely","High","Negative"],
-    ["VC_AUTH_004","Authentication","Login with blank fields","User is on login page","Leave fields blank and click Login","Blank username and password","Required field validation appears","Medium","Negative"],
-    ["VC_AUTH_005","Authentication","Account lock after repeated failures","Failed attempt limit is configured","Enter incorrect password repeatedly","Incorrect password","Account is protected according to lockout policy","High","Security"],
-    ["VC_AUTH_006","Authentication","Logout from application","User is logged in","Click Logout and revisit a protected page","Active session","User is logged out and protected pages require login","High","Positive"],
-    ["VC_AUTH_007","Authentication","Session timeout","User is logged in","Stay inactive beyond configured session time","Expired session","User must authenticate again","High","Security"],
-
-    ["VC_AUTHZ_001","Authorization","View own virtual card","User is logged in","Open Virtual Card section","Cardholder account","User can view permitted card details","High","Positive"],
-    ["VC_AUTHZ_002","Authorization","Access another user's card","Two user accounts exist","Try to access another user's card","Other user's card ID","Access is denied","Critical","Security"],
-    ["VC_AUTHZ_003","Authorization","View-only user attempts card modification","User has view-only permission","Try to block or delete a card","View-only account","Modification is denied","High","Negative"],
-    ["VC_AUTHZ_004","Authorization","Verify role-based access","Different roles are configured","Log in with each role and inspect available actions","Admin and cardholder roles","Each role can access only permitted functions","High","Security"],
-
-    ["VC_CARD_001","Virtual Card","Create a virtual card","User is eligible for a card","Select Create Virtual Card and confirm","Eligible account","Virtual card is created successfully","High","Positive"],
-    ["VC_CARD_002","Virtual Card","View virtual card details","Virtual card exists","Open card details","Existing card","Permitted details are displayed securely","High","Positive"],
-    ["VC_CARD_003","Virtual Card","Block active virtual card","Card is active","Select Block Card and confirm","Active card","Card status changes to Blocked","Critical","Positive"],
-    ["VC_CARD_004","Virtual Card","Unblock blocked virtual card","Card is blocked","Select Unblock and complete verification","Blocked card","Card status changes to Active","High","Positive"],
-    ["VC_CARD_005","Virtual Card","Close virtual card","Card is eligible for closure","Select Close Card and confirm","Eligible card","Card is closed and cannot be used for new payments","High","Positive"],
-    ["VC_CARD_006","Virtual Card","Create card for ineligible account","Account is not eligible","Attempt to create a card","Ineligible account","Card is not created and reason is displayed","Medium","Negative"],
-    ["VC_CARD_007","Virtual Card","Use expired virtual card","Card is expired","Attempt a payment with expired card","Expired card","Transaction is declined","High","Negative"],
-    ["VC_CARD_008","Virtual Card","Verify card status after blocking","Card is active","Block card and refresh card details","Active card","Blocked status remains correct after refresh","High","Regression"],
-
-    ["VC_TXN_001","Transactions","Successful online purchase","Active card and sufficient limit","Make a valid online purchase","Valid amount and merchant","Payment is approved and history is updated","Critical","Positive"],
-    ["VC_TXN_002","Transactions","Decline payment for insufficient balance","Available balance is insufficient","Attempt payment above available balance","Amount above balance","Payment is declined and balance remains correct","Critical","Negative"],
-    ["VC_TXN_003","Transactions","Payment using blocked card","Card is blocked","Attempt an online payment","Blocked card","Transaction is declined","Critical","Negative"],
-    ["VC_TXN_004","Transactions","Prevent duplicate payment","Payment request is submitted","Submit the same request again","Same order reference","Only one debit is posted","Critical","Negative"],
-    ["VC_TXN_005","Transactions","Verify transaction history","Transactions exist","Open transaction history","Known transaction references","Amount, date, status and reference are correct","High","Functional"],
-    ["VC_TXN_006","Transactions","Refund successful transaction","Successful refundable transaction exists","Initiate refund","Original transaction reference","Refund is linked to original payment and balance is adjusted","High","Positive"],
-    ["VC_TXN_007","Transactions","Handle payment timeout","Payment request is in progress","Simulate delayed response","Delayed payment response","No duplicate debit occurs","High","Negative"],
-    ["VC_TXN_008","Transactions","Verify transaction currency","Card supports configured currencies","Make a supported currency transaction","Supported currency","Currency and converted amount follow configured rules","Medium","Functional"],
-
-    ["VC_CRD_001","Credit","Credit amount successfully","Credit operation is permitted","Initiate credit and confirm","Valid credit amount","Balance increases by exact amount","High","Positive"],
-    ["VC_CRD_002","Credit","Reject zero credit amount","Credit screen is available","Enter zero and submit","0","Validation appears and balance remains unchanged","High","Negative"],
-    ["VC_CRD_003","Credit","Reject negative credit amount","Credit screen is available","Enter negative amount","Negative amount","Credit is rejected","High","Negative"],
-    ["VC_CRD_004","Credit","Verify maximum credit limit","Credit limit is configured","Submit amount at maximum limit","Maximum allowed amount","Credit follows configured limit rules","Medium","Boundary"],
-    ["VC_CRD_005","Credit","Verify credit transaction history","Credit is completed","Open transaction history","Credit reference","Credit entry is displayed accurately","Medium","Functional"],
-
-    ["VC_DEB_001","Debit","Debit after successful purchase","Active card has sufficient balance","Complete a valid purchase","Purchase amount","Balance decreases by exact amount once","Critical","Positive"],
-    ["VC_DEB_002","Debit","Reject debit above available balance","Available balance is known","Attempt debit above balance","Amount above balance","Debit is declined and balance remains unchanged","Critical","Negative"],
-    ["VC_DEB_003","Debit","Verify reversal after failed transaction","Transaction has a pending debit or hold","Cause transaction failure and inspect balance","Failed transaction reference","Debit hold is released or reversed as per policy","High","Regression"],
-    ["VC_DEB_004","Debit","Verify debit ledger entry","Successful debit exists","Inspect transaction ledger","Debit reference","One correct debit entry is recorded","High","Functional"],
-    ["VC_DEB_005","Debit","Prevent duplicate debit","Same payment request is submitted twice","Check account balance and ledger","Duplicate request","Only one debit is recorded","Critical","Negative"],
-
-    ["VC_OTP_001","OTP","Complete transaction with valid OTP","OTP challenge is active","Enter current OTP before expiry","Valid OTP","Verification succeeds","Critical","Positive"],
-    ["VC_OTP_002","OTP","Reject invalid OTP","OTP challenge is active","Enter incorrect OTP","Wrong OTP","Verification fails and transaction is not approved","Critical","Negative"],
-    ["VC_OTP_003","OTP","Reject expired OTP","OTP has expired","Enter expired OTP","Expired OTP","OTP is rejected","High","Negative"],
-    ["VC_OTP_004","OTP","Resend OTP","OTP resend is allowed","Click Resend OTP and enter newest OTP","New OTP","New OTP is delivered and verified according to policy","Medium","Positive"],
-    ["VC_OTP_005","OTP","Apply OTP retry limit","Retry limit is configured","Enter incorrect OTP repeatedly","Wrong OTP repeatedly","Further attempts are restricted according to policy","High","Security"],
-    ["VC_OTP_006","OTP","Verify OTP delivery destination","Test mobile number is registered","Request OTP and check test delivery destination","Registered test number","OTP is delivered to the intended number","High","Functional"],
-
-    ["VC_MOB_001","Mobile Number","Add new mobile number","User is authenticated","Open profile and enter a valid number","Valid mobile number","Number is added or marked pending verification","High","Positive"],
-    ["VC_MOB_002","Mobile Number","Verify new mobile number using OTP","New number is pending verification","Request OTP and enter valid OTP","Valid OTP","Mobile number is verified","High","Positive"],
-    ["VC_MOB_003","Mobile Number","Reject invalid mobile number","User is on mobile update page","Enter invalid number and submit","Invalid number format","Validation appears and number is not saved","Medium","Negative"],
-    ["VC_MOB_004","Mobile Number","Prevent duplicate mobile number","Number is already linked to another account","Attempt to add the same number","Existing linked number","Duplicate number is rejected if uniqueness is required","High","Negative"],
-    ["VC_MOB_005","Mobile Number","Update existing mobile number","User has a verified number","Enter a new number and complete verification","New valid number and OTP","New number is verified and updated","High","Positive"],
-    ["VC_MOB_006","Mobile Number","Remove existing mobile number","User has a removable number","Select Remove and complete confirmation","Existing mobile number","Number is removed or marked inactive according to policy","High","Positive"],
-    ["VC_MOB_007","Mobile Number","Prevent removal of only recovery number","Number is the only required recovery number","Try to remove without an alternative","Only registered number","Application requires an alternative or blocks removal","High","Negative"],
-    ["VC_MOB_008","Mobile Number","Verify OTP sent to new number","User is updating mobile number","Start verification and inspect test delivery destination","Old and new test numbers","OTP is sent to intended new number","Critical","Security"],
-
-    ["VC_SEC_001","Security","Mask sensitive card details","Virtual card exists","Open card details screen","Existing card","Sensitive card values are masked by default","Critical","Security"],
-    ["VC_SEC_002","Security","Prevent payment using closed card","Card is closed","Attempt a new transaction","Closed card","Transaction is declined and no debit is posted","Critical","Negative"],
-    ["VC_SEC_003","Security","Verify audit trail for sensitive actions","Audit logging is enabled","Block card and update mobile number","Test user and action references","Audit records actor, action and timestamp without exposing secrets","High","Security"],
-    ["VC_SEC_004","Security","Verify unauthorized profile update","User is not authenticated","Attempt to update mobile number directly","Unauthenticated request","Request is rejected","Critical","Security"]
-
-];
-
-
-/* =================================
-   TEST CASE TABLE RENDERING
-================================= */
-
-const testCaseBody = document.getElementById("testCaseBody");
-const testSearch = document.getElementById("testSearch");
-const moduleFilter = document.getElementById("moduleFilter");
-const testcaseCount = document.getElementById("testcaseCount");
-
-
-function renderTestCases() {
-
-    const searchValue = testSearch.value.toLowerCase().trim();
-    const selectedModule = moduleFilter.value;
-
-    const filteredCases = testCases.filter(test => {
-
-        const matchesSearch = test.join(" ").toLowerCase().includes(searchValue);
-
-        const matchesModule =
-            selectedModule === "all" || test[1] === selectedModule;
-
-        return matchesSearch && matchesModule;
-
-    });
-
-
-    testcaseCount.textContent =
-        "Showing " + filteredCases.length +
-        " of " + testCases.length + " test cases";
-
-
-    if (filteredCases.length === 0) {
-
-        testCaseBody.innerHTML =
-            '<tr><td colspan="9" class="no-test-results">No matching test cases found.</td></tr>';
-
-        return;
-
+      document.querySelectorAll(".nav-links a").forEach(function (link) {
+        link.addEventListener("click", function () {
+          navLinks.classList.remove("active");
+          menuBtn.textContent = "☰";
+          menuBtn.setAttribute("aria-label", "Open navigation menu");
+        });
+      });
     }
 
+    // TEST CASE DATA
+    // Format: ID, Module, Scenario, Expected Result, Type
 
-    testCaseBody.innerHTML = filteredCases.map(test => {
+    const testCases = [
 
-        const priorityClass =
-            test[7] === "High" || test[7] === "Critical"
-                ? "priority-high"
-                : "priority-medium";
+      // LOGIN
+      ["TC_001","Login","Verify login with valid credentials","User should log in successfully","positive"],
+      ["TC_002","Login","Verify login with invalid password","Error message should be displayed","negative"],
 
-        return `
-            <tr>
-                <td>${test[0]}</td>
-                <td>${test[1]}</td>
-                <td>${test[2]}</td>
-                <td>${test[3]}</td>
-                <td>${test[4]}</td>
-                <td>${test[5]}</td>
-                <td>${test[6]}</td>
-                <td class="${priorityClass}">${test[7]}</td>
-                <td>${test[8]}</td>
-            </tr>
+      // OTP
+      ["TC_003","OTP","Verify valid OTP authentication","User authentication should succeed","positive"],
+      ["TC_004","OTP","Verify invalid OTP","System should reject invalid OTP","negative"],
+      ["TC_OTP_001","OTP","Verify expired OTP","Expired OTP should be rejected","negative"],
+      ["TC_OTP_002","OTP","Verify resend OTP functionality","New OTP should be sent successfully","positive"],
+      ["TC_OTP_003","OTP","Verify maximum incorrect OTP attempts","System should enforce the attempt limit","negative"],
+      ["TC_OTP_004","OTP","Verify OTP with empty input","Validation message should be displayed","negative"],
+      ["TC_OTP_005","OTP","Verify OTP authentication cancellation","Payment should not be completed","negative"],
+
+      // CARD
+      ["TC_005","Card","Verify virtual card creation","Virtual card should be created successfully","positive"],
+      ["TC_006","Card","Verify card activation","Card status should change to active","positive"],
+      ["TC_012","Card","Verify blocked card payment","Blocked card transaction should be declined","negative"],
+      ["TC_CARD_001","Card","Verify valid card details","Valid card details should be accepted","positive"],
+      ["TC_CARD_002","Card","Verify invalid card number","Card number validation error should appear","negative"],
+      ["TC_CARD_003","Card","Verify expired card","Expired card should not be accepted","negative"],
+      ["TC_CARD_004","Card","Verify inactive card payment","Inactive card payment should be declined","negative"],
+      ["TC_CARD_005","Card","Verify card status after activation","Correct active status should be displayed","positive"],
+
+      // CVV
+      ["TC_CVV_001","CVV","Verify payment with valid CVV","CVV validation should succeed","positive"],
+      ["TC_CVV_002","CVV","Verify payment with incorrect CVV","Transaction should be declined","negative"],
+      ["TC_CVV_003","CVV","Verify payment with empty CVV","Required field validation should appear","negative"],
+      ["TC_CVV_004","CVV","Verify CVV with invalid length","System should reject invalid CVV length","negative"],
+
+      // MOBILE NUMBER
+      ["TC_MOB_001","Mobile Number","Verify adding a valid mobile number","Mobile number should be added successfully","positive"],
+      ["TC_MOB_002","Mobile Number","Verify updating registered mobile number","New mobile number should be updated","positive"],
+      ["TC_MOB_003","Mobile Number","Verify invalid mobile number","Validation error should be displayed","negative"],
+      ["TC_MOB_004","Mobile Number","Verify OTP after mobile number change","OTP should be sent according to system rules","positive"],
+      ["TC_MOB_005","Mobile Number","Verify removing registered mobile number","Number should be removed after verification","positive"],
+
+      // PAYMENT LIFE CYCLE
+      ["TC_PAY_001","Payment Life Cycle","Initiate payment using a valid card","Payment should be initiated successfully","positive"],
+      ["TC_PAY_002","Payment Life Cycle","Initiate payment using invalid card details","Payment should be rejected with an error","negative"],
+      ["TC_PAY_003","Payment Life Cycle","Verify payment using an expired card","Transaction should be declined","negative"],
+      ["TC_PAY_004","Payment Life Cycle","Verify payment with zero amount","System should not allow payment","negative"],
+      ["TC_PAY_005","Payment Life Cycle","Verify payment with negative amount","Validation error should be displayed","negative"],
+      ["TC_PAY_006","Payment Life Cycle","Verify payment exceeding card limit","Transaction should be declined","negative"],
+
+      // PAYMENT AUTHORIZATION
+      ["TC_AUTH_001","Payment Life Cycle","Verify successful payment authorization","Authorization should be approved","positive"],
+      ["TC_AUTH_002","Payment Life Cycle","Verify insufficient balance authorization","Authorization should be declined","negative"],
+      ["TC_AUTH_003","Payment Life Cycle","Verify blocked card authorization","Transaction should be rejected","negative"],
+      ["TC_AUTH_004","Payment Life Cycle","Verify duplicate payment request","Duplicate transaction should be prevented","negative"],
+      ["TC_AUTH_005","Payment Life Cycle","Verify authorization timeout","Transaction status should be handled correctly","negative"],
+      ["TC_AUTH_006","Payment Life Cycle","Verify declined authorization response","Payment should show declined status","negative"],
+
+      // PAYMENT PROCESSING
+      ["TC_PROC_001","Payment Life Cycle","Verify successful payment processing","Payment should be processed successfully","positive"],
+      ["TC_PROC_002","Payment Life Cycle","Verify payment processor failure","Failure status should be displayed","negative"],
+      ["TC_PROC_003","Payment Life Cycle","Verify network interruption during payment","System should handle interruption safely","negative"],
+      ["TC_PROC_004","Payment Life Cycle","Verify multiple payment attempts","Duplicate debit should not occur","negative"],
+      ["TC_PROC_005","Payment Life Cycle","Verify payment status after processing","Correct payment status should be displayed","positive"],
+      ["TC_PROC_006","Payment Life Cycle","Verify entered and processed payment amount","Both amounts should match","positive"],
+      ["TC_PROC_007","Payment Life Cycle","Verify supported currency","Correct currency should be processed","positive"],
+      ["TC_PROC_008","Payment Life Cycle","Verify retry after payment failure","Retry should work without duplicate debit","positive"],
+
+      // 3D SECURE
+      ["TC_3DS_001","Payment Life Cycle","Verify successful 3D Secure authentication","Authentication should succeed","positive"],
+      ["TC_3DS_002","Payment Life Cycle","Verify incorrect OTP authentication","Authentication should fail","negative"],
+      ["TC_3DS_003","Payment Life Cycle","Verify expired OTP during 3D Secure","Expired OTP should be rejected","negative"],
+      ["TC_3DS_004","Payment Life Cycle","Verify resend OTP functionality","New OTP should be sent and validated","positive"],
+      ["TC_3DS_005","Payment Life Cycle","Verify maximum OTP attempts","System should enforce attempt limit","negative"],
+      ["TC_3DS_006","Payment Life Cycle","Verify authentication cancellation","Payment should not be completed","negative"],
+
+      // DEBIT AND CREDIT
+      ["TC_DC_001","Payment Life Cycle","Verify debit card payment","Correct amount should be debited","positive"],
+      ["TC_DC_002","Payment Life Cycle","Verify credit card payment","Transaction should be completed successfully","positive"],
+      ["TC_DC_003","Payment Life Cycle","Verify available balance after debit","Balance should reflect the transaction","positive"],
+      ["TC_DC_004","Payment Life Cycle","Verify credit transaction","Correct amount should be credited","positive"],
+      ["TC_DC_005","Payment Life Cycle","Verify debit above available balance","Transaction should be declined","negative"],
+      ["TC_DC_006","Payment Life Cycle","Verify transaction ledger entry","Ledger should contain the correct entry","positive"],
+
+      // REFUND
+      ["TC_010","Refund","Verify successful refund","Refund status should be updated","positive"],
+      ["TC_REF_001","Refund","Verify full payment refund","Full amount should be refunded","positive"],
+      ["TC_REF_002","Refund","Verify partial payment refund","Only requested amount should be refunded","positive"],
+      ["TC_REF_003","Refund","Verify refund for failed transaction","Invalid refund should be rejected","negative"],
+      ["TC_REF_004","Refund","Verify duplicate refund request","Duplicate refund should be prevented","negative"],
+      ["TC_REF_005","Refund","Verify refund amount exceeding original payment","System should reject the refund","negative"],
+      ["TC_REF_006","Refund","Verify refund status","Correct refund status should be displayed","positive"],
+      ["TC_REF_007","Refund","Verify payment reversal","Eligible transaction should be reversed correctly","positive"],
+      ["TC_REF_008","Refund","Verify refund transaction history","Refund entry should be visible in history","positive"],
+
+      // SETTLEMENT
+      ["TC_SET_001","Settlement","Verify successful payment capture","Payment should move to captured status","positive"],
+      ["TC_SET_002","Settlement","Verify capture without authorization","Capture should be rejected","negative"],
+      ["TC_SET_003","Settlement","Verify duplicate capture request","Duplicate capture should be prevented","negative"],
+      ["TC_SET_004","Settlement","Verify partial payment capture","Only permitted amount should be captured","positive"],
+      ["TC_SET_005","Settlement","Verify settlement amount","Settlement amount should match expected values","positive"],
+      ["TC_SET_006","Settlement","Verify settlement status","Correct settlement status should be displayed","positive"],
+
+      // TRANSACTION
+      ["TC_011","Transaction","Verify transaction history","Correct transaction details should display","positive"],
+      ["TC_REC_001","Transaction","Verify transaction history after payment","Transaction details should be displayed","positive"],
+      ["TC_REC_002","Transaction","Verify transaction ID across records","Transaction ID should match","positive"],
+      ["TC_REC_003","Transaction","Verify transaction date and time","Correct date and time should be recorded","positive"],
+      ["TC_REC_005","Transaction","Verify failed transaction history","Failed transaction should be recorded correctly","negative"],
+      ["TC_REC_006","Transaction","Verify refund history","Refund details should be recorded correctly","positive"],
+      ["TC_REC_007","Transaction","Search transaction using transaction ID","Matching transaction should be displayed","positive"],
+
+      // DATABASE
+      ["TC_REC_004","Database","Verify payment amount across system records","Amounts should match","positive"],
+      ["TC_REC_008","Database","Verify payment transaction in MySQL database","Database records should match application data","positive"]
+
+    ];
+
+    // TEST CASE MODULE FILTER
+    const moduleFilter = document.getElementById("moduleFilter");
+    const tableBody = document.getElementById("testTableBody");
+    const tableWrap = document.getElementById("testTableWrap");
+    const noTests = document.getElementById("noTests");
+
+    function displayTests() {
+
+      const selectedModule = moduleFilter.value;
+
+      tableBody.innerHTML = "";
+
+      // Hide table for default selection
+      if (selectedModule === "all") {
+        tableWrap.style.display = "none";
+        noTests.style.display = "none";
+        return;
+      }
+
+      const filteredTests = testCases.filter(function(test) {
+        return test[1] === selectedModule;
+      });
+
+      filteredTests.forEach(function(test) {
+
+        const row = document.createElement("tr");
+
+        const typeLabel = test[4] === "positive"
+          ? '<span class="type-positive">Positive</span>'
+          : '<span class="type-negative">Negative</span>';
+
+        row.innerHTML = `
+          <td>${test[0]}</td>
+          <td>${test[1]}</td>
+          <td>${test[2]}</td>
+          <td>${test[3]}</td>
+          <td>${typeLabel}</td>
+          <td><span class="status">Sample Pass</span></td>
         `;
 
-    }).join("");
+        tableBody.appendChild(row);
+      });
 
-}
+      tableWrap.style.display = "block";
 
+      noTests.style.display =
+        filteredTests.length === 0 ? "block" : "none";
+    }
 
-testSearch.addEventListener("input", renderTestCases);
+    if (moduleFilter) {
+      moduleFilter.addEventListener("change", displayTests);
+      displayTests();
+    }
 
-moduleFilter.addEventListener("change", renderTestCases);
+    // AUTOMATIC FOOTER YEAR
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
 
-renderTestCases();
-
-</script>
+  </script>
 
 </body>
 </html>
